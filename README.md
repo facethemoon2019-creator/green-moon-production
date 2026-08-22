@@ -27,3 +27,11 @@ The magazine includes a controlled background-music player. Music configuration 
 
 ## Admin console
 Open `/admin` on the deployed Worker. Set the `ADMIN_TOKEN` Worker secret before use. Customer APIs do not return wholesale/cost fields.
+
+
+## New production UX
+- Customer-facing gear button removed.
+- Admin is available at `/admin` and API operations remain protected by `ADMIN_TOKEN`.
+- Products support multiple storefront sections stored in `care_json._sections`.
+- Welcome gate starts music from a user gesture; this is required by mobile browser autoplay policies.
+- Music settings are stored server-side through `/api/admin/magazine-music`.

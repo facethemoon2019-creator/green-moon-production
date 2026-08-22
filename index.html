@@ -28,12 +28,17 @@ repeating-linear-gradient(115deg,#8c8c8c 0,#eeeeee 5px,#a7a7a7 10px,#f4f4f4 15px
 background-size:13px 13px,17px 17px,19px 19px,100% 100%;
 box-shadow:inset 0 2px 7px #fff9,inset 0 -5px 12px #3338;mix-blend-mode:normal}
 .scratchFoil:after{content:"خربش هنا";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-4deg);color:#454545;font-weight:1000;font-size:23px;letter-spacing:1px;text-shadow:0 1px 0 #fff}
-.revealed .scratchFoil{display:none}.scratchCard:before{content:"GREEN MOON • SURPRISE";position:absolute;inset:12px;border:1px dashed #76561d;border-radius:19px;display:grid;place-items:center;color:#70531c;font-size:19px;font-weight:1000;letter-spacing:2px}.scratchPrize{position:absolute;inset:28px;display:grid;place-items:center;text-align:center;color:#fff;font-weight:1000;font-size:23px;background:linear-gradient(135deg,#1b8655,#3bb071);border-radius:17px}.scratchCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:4;border-radius:22px;touch-action:none}.scratchHint{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;background:#0007;padding:10px 14px;border-radius:999px;font-size:12px;font-weight:900;pointer-events:none}.revealed .scratchHint{display:none}
+.revealed .scratchFoil{display:none}.scratchCard:before{content:"GREEN MOON • SURPRISE";position:absolute;inset:12px;border:1px dashed #76561d;border-radius:19px;display:grid;place-items:center;color:#70531c;font-size:19px;font-weight:1000;letter-spacing:2px}.scratchPrize{position:absolute;inset:28px;display:grid;place-items:center;text-align:center;color:#fff;font-weight:1000;font-size:23px;background:linear-gradient(135deg,#1b8655,#3bb071);border-radius:17px;opacity:0;transform:scale(.96);transition:.35s;pointer-events:none;padding:18px;z-index:2}.revealed .scratchPrize{opacity:1;transform:scale(1)}.scratchCard.used .scratchPrize{opacity:0;transform:scale(.96)}.scratchCard.used:after{content:"🎁 تمت إضافة هديتك للفاتورة";position:absolute;inset:28px;z-index:2;display:grid;place-items:center;text-align:center;color:#fff;font-size:18px;font-weight:1000;background:linear-gradient(135deg,#0d5f3d,#1f9360);border-radius:17px;padding:18px}.scratchCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:4;border-radius:22px;touch-action:none;cursor:crosshair}.scratchHint{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;background:#0007;padding:10px 14px;border-radius:999px;font-size:12px;font-weight:900;pointer-events:none}.revealed .scratchHint{display:none}.scratchCard.used .scratchHint{display:block;background:#0a4b31;color:#fff}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.trustItem{background:#fff;border:1px solid var(--line);border-radius:21px;padding:18px;text-align:center}.trustItem b{display:block;margin:8px 0 4px}.trustItem span{font-size:11px;color:var(--muted);line-height:1.7}
 .gameGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.game{background:#fff;border:1px solid var(--line);border-radius:24px;padding:17px;box-shadow:0 10px 35px #173d2908}.game h3{margin:0 0 5px}.game p{font-size:11px;color:var(--muted);line-height:1.7}.puzzle{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:16px;overflow:hidden;margin:12px 0;background:#dfeee3}.puzzlePiece{aspect-ratio:1;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#d5ead9,#f4f8ef);border:1px solid #fff;cursor:pointer}.puzzlePiece.sel{outline:3px solid var(--gold)}.leafGame{height:190px;border-radius:18px;background:linear-gradient(135deg,#eaf6ec,#d5ead9);position:relative;overflow:hidden;margin:12px 0}.leafGame button{background:#fff;border-radius:50%;width:50px;height:50px;font-size:22px;position:absolute;left:20px;top:20px;box-shadow:0 5px 15px #173d2920}.score{font-size:11px;color:var(--muted)}.waterGame{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}.waterGame button{padding:10px;border-radius:12px;background:#eef5f0;color:var(--g);font-weight:900}.gameMsg{display:block;margin-top:10px;font-size:11px;font-weight:900;color:var(--g3)}
 .footer{background:#062d1e;color:#a8c4b6;margin-top:70px}.foot{max-width:1240px;margin:auto;padding:45px 18px 25px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}.foot h3{color:#fff}.foot p,.foot a{font-size:12px;line-height:2}.copy{text-align:center;border-top:1px solid #fff1;padding:15px;font-size:10px}
 .drawer,.modal{position:fixed;inset:0;background:#0008;z-index:70;display:none}.drawer.show,.modal.show{display:block}.panel{position:absolute;right:0;top:0;bottom:0;width:min(450px,95vw);background:#fff;padding:20px;overflow:auto;box-shadow:-20px 0 60px #0002}.panelHead{display:flex;align-items:center;justify-content:space-between}.close{width:40px;height:40px;border-radius:13px;background:#eef4ef;color:var(--g)}.cartrow{display:flex;align-items:center;gap:9px;padding:14px 0;border-bottom:1px solid var(--line)}.cartpic{width:55px;height:55px;border-radius:15px;background:#e8f4eb;display:grid;place-items:center}.qty{display:flex;align-items:center;gap:7px;margin-right:auto}.qty button{width:27px;height:27px;border-radius:8px;background:#edf4ef}.total{background:#f0f7f1;border-radius:18px;padding:15px;margin-top:15px}.line{display:flex;justify-content:space-between;margin:7px 0;font-size:12px}.final{border-top:1px solid var(--line);padding-top:11px;font-size:18px;font-weight:950;color:var(--g)}.wa{width:100%;background:#20af65;color:#fff;padding:14px;border-radius:14px;font-weight:950;margin-top:9px}
-.admin{display:none}.admin.show{display:block}.adminBox{background:#fff;border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow)}.tabs{display:flex;gap:7px;overflow:auto;margin:16px 0}.tab{padding:10px 13px;background:#edf4ef;border-radius:11px;color:var(--g);font-weight:900;font-size:11px;white-space:nowrap}.tab.on{background:var(--g);color:#fff}.tabPanel{display:none}.tabPanel.on{display:block}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field label{display:block;font-size:10px;color:#63726a;font-weight:900;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fbfdfb;padding:11px;border-radius:12px;outline:0}.field textarea{min-height:90px;resize:vertical}.adminList{margin-top:17px}.adminItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.admin{display:none}.admin.show{display:block}
+body.admin-route > .top,body.admin-route > .nav,body.admin-route > main,body.admin-route > footer,body.admin-route > .gmMagazineMusic,body.admin-route > .gmMusicFallback,body.admin-route > #gmWelcome{display:none!important}
+body.admin-route #admin{display:block!important;margin-top:20px}
+.adminGear{display:none!important}
+.section{content-visibility:auto;contain-intrinsic-size:600px}
+.pic img,.cartpic img,.upsellPic img{loading:lazy;image-rendering:auto}.adminBox{background:#fff;border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow)}.tabs{display:flex;gap:7px;overflow:auto;margin:16px 0}.tab{padding:10px 13px;background:#edf4ef;border-radius:11px;color:var(--g);font-weight:900;font-size:11px;white-space:nowrap}.tab.on{background:var(--g);color:#fff}.tabPanel{display:none}.tabPanel.on{display:block}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field label{display:block;font-size:10px;color:#63726a;font-weight:900;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fbfdfb;padding:11px;border-radius:12px;outline:0}.field textarea{min-height:90px;resize:vertical}.adminList{margin-top:17px}.adminItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
 .uploadBox{border:2px dashed #b9c9bf;background:#f8fbf8;border-radius:18px;padding:14px;text-align:center}
 .uploadBox input[type=file]{width:100%;padding:10px;border-radius:12px;background:#fff}
 .previewImg{width:100%;height:150px;object-fit:cover;border-radius:16px;border:1px solid var(--line);margin-top:9px;background:#edf4ef}
@@ -87,11 +92,22 @@ box-shadow:inset 0 2px 7px #fff9,inset 0 -5px 12px #3338;mix-blend-mode:normal}
 </style>
 </head>
 <body>
+<div id="gmWelcome" class="gmWelcome" aria-modal="true" role="dialog">
+  <div class="gmWelcomeCard" dir="ltr">
+    <div class="gmWelcomeLeaf">🌿</div>
+    <div class="gmWelcomeEyebrow">GREEN MOON</div>
+    <h1 id="gmWelcomeTitle">Welcome to Green Moon</h1>
+    <p id="gmWelcomeText">Your green space starts here.</p>
+    <div id="gmWelcomeVoiceStatus" class="gmWelcomeVoiceStatus" aria-live="polite">🔊 Welcome message</div>
+    <button id="gmWelcomeEnter" type="button">Enter Green Moon ✨</button>
+    <small>Tap to enter • hear the welcome message • start the music</small>
+  </div>
+</div>
 <div id="gmMagazineMusic" class="gmMagazineMusic hidden" aria-label="موسيقى المجلة">
   <button id="gmMusicToggle" type="button" aria-label="تشغيل الموسيقى">▶</button>
   <span>🎵 موسيقى المجلة</span>
   <input id="gmMusicVolume" type="range" min="0" max="1" step="0.05" value="0.35" aria-label="مستوى الصوت">
-  <audio id="gmMagazineAudio" preload="auto" loop></audio>
+  <audio id="gmMagazineAudio" preload="none" loop playsinline><source src="/default-music.mp3" type="audio/mpeg"></audio>
 </div>
 <div id="gmMusicFallback" class="gmMusicFallback">
   🎵 موسيقى المجلة جاهزة
@@ -102,27 +118,33 @@ box-shadow:inset 0 2px 7px #fff9,inset 0 -5px 12px #3338;mix-blend-mode:normal}
 <nav class="nav"><div class="navin">
 <a class="logo" href="#"><span class="mark"><img id="logoImage" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:16px"></span><span id="brandName">GREEN MOON</span></a>
 <div class="navlinks"><a href="#products">المتجر</a><a href="#offers">العروض</a><a href="#ai">مساعد النباتات</a><a href="#scratch">خربش واربح</a><button style="background:none;color:inherit;font-weight:inherit" onclick="openAbout()">عن Green Moon</button></div>
-<div class="actions"><button class="icon" onclick="openCart()">🛒<span id="cartCount" class="badge">0</span><span id="cartBadge" class="cartBadge">0</span></button><button class="icon" onclick="openAdmin()">⚙️</button></div>
+<div class="actions"><button class="icon" onclick="openCart()">🛒<span id="cartCount" class="badge">0</span><span id="cartBadge" class="cartBadge">0</span></button><button class="icon adminGear" aria-hidden="true" tabindex="-1">⚙️</button></div>
 </div></nav>
 
 <main class="wrap">
 <section class="hero" id="hero"><div class="heroGlow"></div><img id="coverImage" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34;z-index:1"><div class="heroText"><span class="pill">✦ PREMIUM PLANT EXPERIENCE</span><h1>بيتك يستاهل<br><em>مساحة خضراء.</em></h1><p>مش مجرد نباتات. اختيارات مدروسة، عروض ذكية، إرشادات عناية خطوة بخطوة، وتجربة شراء مصممة عشان تحب كل تفصيلة.</p><div class="cta"><a class="btn gold" href="#products">اكتشف المتجر ✨</a><a class="btn ghost" href="#ai">اسأل مساعد النباتات 🤖</a></div><div class="metrics"><div class="metric"><b>🌱 +100</b><span>اختيار نباتي</span></div><div class="metric"><b>🔎 فحص</b><span>قبل التسليم</span></div><div class="metric"><b>💚 دعم</b><span>بعد الشراء</span></div></div></div>
 <svg class="heroPlant" viewBox="0 0 600 500"><path d="M330 430C320 340 340 230 360 120" stroke="#b8d9c3" stroke-width="10" fill="none" stroke-linecap="round"/><path class="l" d="M350 245C250 230 220 165 235 95c84 8 130 62 115 150Z"/><path class="l2" d="M352 330C430 315 470 270 470 205c-75 4-116 44-118 125Z"/><path class="l2" d="M365 170C425 155 456 116 450 64c-62 3-94 36-85 106Z"/><path class="pot" d="M250 400h190l-25 95H275l-25-95Z"/><ellipse cx="345" cy="400" rx="95" ry="20" fill="#b9874b"/><ellipse cx="345" cy="398" rx="75" ry="13" fill="#6b4829"/></svg></section>
 
-<section class="section" id="products"><div class="head"><div><div class="eyebrow">SHOP THE COLLECTION</div><h2>اختيارات Green Moon</h2><div class="sub">اضغط على المنتج وشوف التفاصيل والعناية.</div></div></div><div class="chips"><button class="chip on" onclick="filterProducts('all',this)">الكل</button><button class="chip" onclick="filterProducts('plants',this)">نباتات</button><button class="chip" onclick="filterProducts('offers',this)">باقات</button><button class="chip" onclick="filterProducts('vases',this)">فازات</button></div><div id="productsGrid" class="products"></div></section>
+<section class="section categoryHub wrap" id="catalogSections">
+  <div class="categoryHead"><div><div class="sectionKicker">GREEN MOON COLLECTIONS</div><h2>اختار القسم اللي يناسبك 🌿</h2><p>قسمنا المنتجات لأقسام واضحة عشان توصل للي بتدور عليه أسرع.</p></div><button class="categoryAll" onclick="showSection('all')">كل المنتجات</button></div>
+  <div id="sectionGrid" class="categoryGrid"></div>
+</section>
+<section class="section" id="products"><div class="head"><div><div class="eyebrow">SHOP THE COLLECTION</div><h2 id="productsTitle">كل المنتجات</h2><div class="sub" id="productsSub">تصفح كل اختيارات Green Moon.</div></div></div>
+  <div class="shopTools" style="display:flex;gap:8px;align-items:center;margin-bottom:14px"><div class="searchBox" style="flex:1"><input id="productSearch" placeholder="🔎 ابحث عن نبات، فازة، عرض..." oninput="filterProducts()"></div><select id="sortProducts" onchange="filterProducts()" style="padding:11px;border:1px solid var(--line);border-radius:12px;background:#fff"><option value="featured">الأكثر تميزًا</option><option value="priceLow">السعر من الأقل</option><option value="priceHigh">السعر من الأعلى</option><option value="name">الاسم</option></select></div>
+  <div class="chips"><button class="chip on" onclick="showSection('all')">الكل</button><button class="chip" onclick="showSection('plants')">نباتات</button><button class="chip" onclick="showSection('offers')">عروض</button><button class="chip" onclick="showSection('vases')">فازات</button></div><div id="productsGrid" class="products"></div></section>
 
 <section class="section" id="offers"><div class="offer"><div><div class="eyebrow">⚡ FLASH OFFER</div><h2>باكدج Green Corner</h2><p>3 نباتات مختارة + فازة أنيقة + أحجار ديكور. كل اللي تحتاجه عشان تعمل ركن أخضر جاهز.</p><div class="cta"><button class="btn gold" onclick="add(4)">أضف العرض للسلة</button><b style="font-size:24px;color:#173b29">599 ج</b><span style="text-decoration:line-through;color:#9ba39e">799 ج</span></div></div><div><div style="text-align:center;font-weight:900;margin-bottom:10px">الوقت المتبقي</div><div class="timer"><div class="time"><b id="hh">00</b><span>ساعة</span></div><div class="time"><b id="mm">15</b><span>دقيقة</span></div><div class="time"><b id="ss">00</b><span>ثانية</span></div></div></div></div></section>
 
-<section class="section" id="ai"><div class="ai"><div><div class="eyebrow" style="color:#75d99d">AI PLANT CARE</div><h2>مساعدك الذكي للعناية 🌿</h2><p>اكتب اسم النبات أو اختاره، والمساعد يولّد لك خطة عناية خطوة بخطوة: الإضاءة، الري، التربة، التسميد، الرطوبة، وأشهر الأخطاء.</p><p class="aiNote">في النسخة النهائية يمكن ربط نفس الواجهة بواجهة AI حقيقية. النسخة التجريبية تعمل محليًا بدون API.</p></div><div class="aiForm"><input id="aiName" placeholder="اكتب اسم النبات: مونستيرا، بامبو، بوتس..."><select id="aiSelect"><option value="">أو اختر نباتًا</option></select><button class="btn gold" style="width:100%" onclick="generateCare()">اعمل خطة العناية 🤖</button><div id="care" class="care"></div></div></div></section>
+<section class="section" id="ai"><div class="ai"><div><div class="eyebrow" style="color:#75d99d">AI PLANT CARE</div><h2>مساعدك الذكي للعناية 🌿</h2><p>اكتب اسم النبات أو اختاره، والمساعد يولّد لك خطة عناية خطوة بخطوة: الإضاءة، الري، التربة، التسميد، الرطوبة، وأشهر الأخطاء.</p><p class="aiNote">في النسخة النهائية يمكن ربط نفس الواجهة بواجهة AI حقيقية. الخطة الأساسية تعمل فورًا، ويمكن تشغيل AI الحقيقي عند ضبط مفتاح OpenAI.</p></div><div class="aiForm"><input id="aiName" placeholder="اكتب اسم النبات: مونستيرا، بامبو، بوتس..."><select id="aiSelect"><option value="">أو اختر نباتًا</option></select><button class="btn gold" style="width:100%" onclick="generateCare()">اعمل خطة العناية 🤖</button><div id="care" class="care"></div></div></div></section>
 
-<section class="section" id="scratch"><div class="scratchBox"><div><div class="eyebrow" style="color:#98dfb5">REAL SCRATCH CARD</div><h2>خربش بإيدك واربح 🎁</h2><p>تجربة خربشة حقيقية باللمس مع صوت خربشة مولّد من الجهاز. كل ما تمسح مساحة أكبر، تظهر الجائزة تدريجيًا.</p><p style="font-size:11px;color:#a9cbb8">ملاحظة: الصوت يبدأ بعد أول لمسة بسبب قيود المتصفح على تشغيل الصوت تلقائيًا.</p></div><div class="scratchStage" id="scratchStage"><div class="scratchCard"><div class="scratchPrize">🎉 مبروك!<br><span style="font-size:15px">خصم 100 جنيه على طلبك القادم</span></div><canvas id="scratchCanvas" class="scratchCanvas"></canvas><div class="scratchHint">اسحب بإصبعك للخربشة</div></div></div></div></section>
+<section class="section" id="scratch"><div class="scratchBox"><div><div class="eyebrow" style="color:#98dfb5">REAL SCRATCH CARD</div><h2>خربش بإيدك واربح 🎁</h2><p>تجربة خربشة حقيقية باللمس مع صوت خربشة مولّد من الجهاز. كل ما تمسح مساحة أكبر، تظهر الجائزة تدريجيًا.</p><p style="font-size:11px;color:#a9cbb8">ملاحظة: صوت الخربشة يعمل عند لمس الكارت مباشرة.</p></div><div class="scratchStage" id="scratchStage"><div class="scratchCard"><div class="scratchPrize">🎉 مبروك!<br><span style="font-size:15px">خصم 100 جنيه على طلبك القادم</span></div><canvas id="scratchCanvas" class="scratchCanvas" aria-label="كارت الخربشة"></canvas><div class="scratchHint">اسحب بإصبعك للخربشة</div></div></div></div></section>
 
 <section class="section"><div class="head"><div><div class="eyebrow">WHY GREEN MOON</div><h2>التجربة اللي تفرق</h2></div></div><div class="trust"><div class="trustItem"><div style="font-size:25px">🌱</div><b>اختيارات مدروسة</b><span>معلومات العناية موجودة مع كل نبات.</span></div><div class="trustItem"><div style="font-size:25px">🔎</div><b>فحص قبل التسليم</b><span>نراجع جودة المنتج قبل خروجه.</span></div><div class="trustItem"><div style="font-size:25px">💬</div><b>واتساب مباشر</b><span>طلب سريع برسالة جاهزة.</span></div><div class="trustItem"><div style="font-size:25px">🎁</div><b>مفاجآت وعروض</b><span>عروض وخربشات تضيف متعة للشراء.</span></div></div></section>
 </main>
 
 <section id="admin" class="admin wrap section"><div class="adminBox"><div class="head"><div><div class="eyebrow">ADMIN CONTROL CENTER</div><h2>لوحة التحكم</h2><div class="sub">دي لوحة تشغيل فعلية داخل الـDemo: إضافة وتعديل وحذف وحفظ.</div></div><button class="mini" onclick="closeAdmin()">إغلاق ✕</button></div>
 <div class="tabs"><button class="tab on" onclick="adminTab('products',this)">المنتجات</button><button class="tab" onclick="document.getElementById('businessDashboard')?.scrollIntoView({behavior:'smooth'})">📊 لوحة الأرقام</button><button class="tab" onclick="adminTab('settings',this)">هوية المتجر</button><button class="tab" onclick="adminTab('theme',this)">الثيم والألوان</button><button class="tab" onclick="adminTab('offers',this)">العروض</button><button class="tab" onclick="adminTab('scratch',this)">الخربشة</button></div>
-<div id="tab-products" class="tabPanel on"><div class="productForm"><h3 style="margin-top:0">إضافة منتج جديد</h3><div class="grid2"><div class="field"><label>اسم المنتج</label><input id="pName"></div><div class="field"><label>التصنيف</label><select id="pCat"><option value="plants">نباتات</option><option value="offers">باقات</option><option value="vases">فازات</option></select></div><div class="field"><label>سعر البيع</label><input id="pPrice" type="number"></div><div class="field"><label>السعر القديم</label><input id="pOld" type="number"></div><div class="field"><label>💼 </label><input id="pWholesale" type="number" min="0" placeholder="مثال: 150"></div><div class="field"><label>📦 تكلفة المنتج</label><input id="pCost" type="number" min="0"></div><div class="field"><label>📊 المخزون</label><input id="pStock" type="number" min="0" value="99"></div><div class="field"><label>🔢 الحد الأقصى للطلب</label><input id="pMaxQty" type="number" min="1" value="99"></div><div class="field" style="grid-column:1/-1"><label>الوصف</label><textarea id="pDesc"></textarea></div><div class="field" style="grid-column:1/-1"><div class="uploadBox"><b>📷 صورة المنتج</b><div style="font-size:10px;color:#718078;margin:5px">اختار الصورة من الموبايل مباشرة — بدون رابط</div><input id="pImage" type="file" accept="image/*" onchange="previewUpload('pImage','pImagePreview')"><img id="pImagePreview" class="previewImg" style="display:none"></div></div></div><button class="btn dark" style="margin-top:12px" onclick="addProduct()">+ إضافة المنتج + توليد العناية تلقائيًا</button></div>
+<div id="tab-products" class="tabPanel on"><div class="productForm"><h3 style="margin-top:0">إضافة منتج جديد</h3><div class="grid2"><div class="field"><label>اسم المنتج</label><input id="pName"></div><div class="field"><label>التصنيف</label><select id="pCat"><option value="plants">نباتات</option><option value="offers">باقات</option><option value="vases">فازات</option></select></div><div class="field"><label>سعر البيع</label><input id="pPrice" type="number"></div><div class="field"><label>السعر القديم</label><input id="pOld" type="number"></div><div class="field"><label>💼 </label><input id="pWholesale" type="number" min="0" placeholder="مثال: 150"></div><div class="field"><label>📦 تكلفة المنتج</label><input id="pCost" type="number" min="0"></div><div class="field"><label>📊 المخزون</label><input id="pStock" type="number" min="0" value="99"></div><div class="field"><label>🔢 الحد الأقصى للطلب</label><input id="pMaxQty" type="number" min="1" value="99"></div><div class="field" style="grid-column:1/-1"><label>الوصف</label><textarea id="pDesc"></textarea></div><div class="field" style="grid-column:1/-1"><label>📌 أقسام ظهور المنتج</label><div id="pSections" class="gmSectionChecks"></div></div><div class="field" style="grid-column:1/-1"><div class="uploadBox"><b>📷 صورة المنتج</b><div style="font-size:10px;color:#718078;margin:5px">اختار الصورة من الموبايل مباشرة — بدون رابط</div><input id="pImage" type="file" accept="image/*" onchange="previewUpload('pImage','pImagePreview')"><img id="pImagePreview" class="previewImg" style="display:none"></div></div></div><button class="btn dark" style="margin-top:12px" onclick="addProduct()">+ إضافة المنتج + توليد العناية تلقائيًا</button></div>
 <div id="businessDashboard" style="margin-bottom:18px">
   <div class="eyebrow">GREEN MOON CONTROL CENTER</div>
   <h2 style="margin:4px 0 12px">📊 مركز قيادة المتجر</h2>
@@ -149,7 +171,8 @@ box-shadow:inset 0 2px 7px #fff9,inset 0 -5px 12px #3338;mix-blend-mode:normal}
   </div>
 </div>
 </div></div>
-<div id="tab-settings" class="tabPanel"><div class="field" style="margin-bottom:12px"><label>🤖 هامش ربح الإضافة الذكية %</label><div id="upsellInternalNote" style="font-size:9px;color:#718078;margin-top:4px">إعداد داخلي للإدارة فقط — لا يظهر للعميل.</div><input id="sUpsellMargin" type="number" min="1" max="100" value="22"><small style="display:block;margin-top:5px;color:#718078">الـAI يستخدم / ثم يضيف هذا الهامش ويعرض سعرًا خاصًا للعميل.</small></div><div style="background:#eef7f0;padding:12px;border-radius:14px;font-size:10px;color:#426052;margin-bottom:12px">🤖 ميزة «صوّر مكانك» تعمل في الـDemo بمحرك اقتراح محلي. في النسخة Online النهائية يمكن توصيلها بـVision AI + Image Editing لإخراج تركيب واقعي للنبات داخل الصورة نفسها.</div><div class="grid2"><div class="field"><label>اسم المتجر</label><input id="sName"></div><div class="field"><label>واتساب بدون +</label><input id="sWa"></div><div class="field"><label>العنوان</label><input id="sAddress"></div><div class="field"><label>رسالة الطلب</label><input id="sMsg"></div><div class="field" style="grid-column:1/-1"><label>من نحن</label><textarea id="sAbout"></textarea></div><div class="field"><label>اسم صاحب Green Moon</label><input id="sOwnerName" placeholder="اكتب الاسم"></div><div class="field"><label>نبذة عن المالك</label><textarea id="sOwnerBio" placeholder="الخبرة، القصة، الرسالة..."></textarea></div><div class="field"><label>رؤية الشركة</label><textarea id="sVision" placeholder="رؤية Green Moon"></textarea></div><div class="field"><div class="uploadBox"><b>👤 صورة صاحب الشركة</b><input id="sOwnerPhoto" type="file" accept="image/*" onchange="previewUpload('sOwnerPhoto','ownerPreviewAdmin')"><img id="ownerPreviewAdmin" class="logoPreview" style="display:none"></div></div><div class="field"><div class="uploadBox"><b>🖼️ لوجو المتجر</b><div style="font-size:10px;color:#718078;margin:5px">اختار الصورة من جهازك</div><input id="sLogo" type="file" accept="image/*" onchange="previewUpload('sLogo','logoPreviewAdmin')"><img id="logoPreviewAdmin" class="logoPreview" style="display:none"></div></div><div class="field"><div class="uploadBox"><b>🖼️ صورة الغلاف</b><div style="font-size:10px;color:#718078;margin:5px">اختار صورة الغلاف من جهازك</div><input id="sCover" type="file" accept="image/*" onchange="previewUpload('sCover','coverPreviewAdmin')"><img id="coverPreviewAdmin" class="previewImg" style="display:none"></div></div></div><button class="btn dark" style="margin-top:12px" onclick="saveSettings()">حفظ الهوية والإعدادات</button></div>
+<div id="tab-settings" class="tabPanel"><div class="field" style="margin-bottom:12px"><label>🤖 هامش ربح الإضافة الذكية %</label><div id="upsellInternalNote" style="font-size:9px;color:#718078;margin-top:4px">إعداد داخلي للإدارة فقط — لا يظهر للعميل.</div><input id="sUpsellMargin" type="number" min="1" max="100" value="22"><small style="display:block;margin-top:5px;color:#718078">الـAI يستخدم / ثم يضيف هذا الهامش ويعرض سعرًا خاصًا للعميل.</small></div><div style="background:#eef7f0;padding:12px;border-radius:14px;font-size:10px;color:#426052;margin-bottom:12px">🤖 ميزة «صوّر مكانك» تعمل في الـDemo بمحرك اقتراح محلي. في النسخة Online النهائية يمكن توصيلها بـVision AI + Image Editing لإخراج تركيب واقعي للنبات داخل الصورة نفسها.</div><div class="grid2"><div class="field"><label>اسم المتجر</label><input id="sName"></div><div class="field"><label>واتساب بدون +</label><input id="sWa"></div><div class="field"><label>العنوان</label><input id="sAddress"></div><div class="field"><label>رسالة الطلب</label><input id="sMsg"></div><div class="field" style="grid-column:1/-1"><label>من نحن</label><textarea id="sAbout"></textarea></div><div class="field"><label>اسم صاحب Green Moon</label><input id="sOwnerName" placeholder="اكتب الاسم"></div><div class="field"><label>نبذة عن المالك</label><textarea id="sOwnerBio" placeholder="الخبرة، القصة، الرسالة..."></textarea></div><div class="field"><label>رؤية الشركة</label><textarea id="sVision" placeholder="رؤية Green Moon"></textarea></div><div class="field" style="grid-column:1/-1;background:#fff9e8;border:1px solid #ead69b;border-radius:16px;padding:12px;margin-bottom:12px"><b style="display:block;margin-bottom:8px">🔊 شاشة الترحيب الصوتية</b><div class="grid2"><div class="field" style="grid-column:1/-1"><label>نص الترحيب الذي سيتكلم به الموقع</label><textarea id="welcomeSpeechText" style="min-height:80px" placeholder="Welcome to Green Moon, where every plant brings life to your space."></textarea></div><div class="field"><label>لغة الصوت</label><select id="welcomeSpeechLang"><option value="en-US">English (US)</option><option value="en-GB">English (UK)</option><option value="ar-EG">العربية</option></select></div><div class="field"><label>سرعة الكلام</label><input id="welcomeSpeechRate" type="range" min="0.75" max="1.25" step="0.05" value="0.95"></div><label style="display:flex;gap:7px;align-items:center"><input id="welcomeSpeechEnabled" type="checkbox" checked> تشغيل صوت الترحيب</label><label style="display:flex;gap:7px;align-items:center"><input id="welcomeSpeechRepeat" type="checkbox" checked> تشغيله عند كل زيارة جديدة</label></div><small style="display:block;margin-top:7px;color:#718078">الصوت يستخدم محرك الكلام الموجود في الهاتف، لذلك لا يحتاج ملف MP3 إضافي. على الموبايل يبدأ مضمون الصوت بشكل مضمون عند أول ضغطة على زر الدخول.</small></div>
+<div class="field" style="grid-column:1/-1;background:#f3f8f4;border-radius:16px;padding:12px"><b style="display:block;margin-bottom:8px">🎵 التحكم في موسيقى الموقع</b><div class="grid2"><div class="field"><label>رابط ملف MP3</label><input id="musicUrl" placeholder="https://.../music.mp3"></div><div class="field"><label>مستوى الصوت</label><input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.35"></div><label style="display:flex;gap:7px;align-items:center"><input id="musicEnabled" type="checkbox" checked> تشغيل الموسيقى</label><label style="display:flex;gap:7px;align-items:center"><input id="musicAutoplay" type="checkbox" checked> تشغيل تلقائي بعد الترحيب</label><label style="display:flex;gap:7px;align-items:center"><input id="musicLoop" type="checkbox" checked> تكرار الموسيقى</label></div><small style="display:block;margin-top:7px;color:#718078">مهم: الموبايلات تمنع تشغيل الصوت تلقائيًا بدون تفاعل؛ لذلك رسالة الترحيب هي زر الدخول الذي يبدأ الموسيقى.</small></div><div class="field"><div class="uploadBox"><b>👤 صورة صاحب الشركة</b><input id="sOwnerPhoto" type="file" accept="image/*" onchange="previewUpload('sOwnerPhoto','ownerPreviewAdmin')"><img id="ownerPreviewAdmin" class="logoPreview" style="display:none"></div></div><div class="field"><div class="uploadBox"><b>🖼️ لوجو المتجر</b><div style="font-size:10px;color:#718078;margin:5px">اختار الصورة من جهازك</div><input id="sLogo" type="file" accept="image/*" onchange="previewUpload('sLogo','logoPreviewAdmin')"><img id="logoPreviewAdmin" class="logoPreview" style="display:none"></div></div><div class="field"><div class="uploadBox"><b>🖼️ صورة الغلاف</b><div style="font-size:10px;color:#718078;margin:5px">اختار صورة الغلاف من جهازك</div><input id="sCover" type="file" accept="image/*" onchange="previewUpload('sCover','coverPreviewAdmin')"><img id="coverPreviewAdmin" class="previewImg" style="display:none"></div></div></div><button class="btn dark" style="margin-top:12px" onclick="saveSettings()">حفظ الهوية والإعدادات</button><button class="btn dark" style="margin-top:8px" onclick="saveMusicSettings()">🎵 حفظ إعدادات الموسيقى</button></div>
 <div id="tab-theme" class="tabPanel"><div class="grid2"><div class="field"><label>اللون الرئيسي</label><input id="tMain" type="color" value="#073b27"></div><div class="field"><label>لون إبراز العروض</label><input id="tGold" type="color" value="#d8ae51"></div><div class="field"><label>لون الخلفية</label><input id="tBg" type="color" value="#f4f7f4"></div><div class="field"><label>الثيم الجاهز</label><select id="tPreset"><option value="forest">Forest Luxury</option><option value="olive">Olive Garden</option><option value="sand">Natural Sand</option><option value="midnight">Midnight Green</option></select></div></div><button class="btn dark" style="margin-top:12px" onclick="saveTheme()">تطبيق الثيم فورًا</button></div>
 <div id="tab-offers" class="tabPanel"><div class="grid2"><div class="field"><label>عنوان العرض</label><input id="oTitle" value="باكدج Green Corner"></div><div class="field"><label>سعر العرض</label><input id="oPrice" type="number" value="599"></div><div class="field"><label>السعر القديم</label><input id="oOld" type="number" value="799"></div><div class="field"><label>المدة بالدقائق</label><input id="oMinutes" type="number" value="15"></div></div><button class="btn dark" style="margin-top:12px" onclick="saveOffer()">حفظ العرض</button></div>
 <div id="tab-scratch" class="tabPanel"><div class="grid2"><div class="field"><label>نص الجائزة</label><input id="scratchPrize" value="خصم 100 جنيه"></div><div class="field"><label>عدد مرات الاستخدام</label><input id="scratchUses" type="number" value="1"></div><div class="field"><label>تأثير الجائزة على الفاتورة</label><input id="scratchDelta" type="number" value="-100"><div style="font-size:9px;color:#718078;margin-top:5px">سالب = خصم، موجب = إضافة مبلغ. مثال -100 يخصم 100 ج تلقائيًا.</div></div></div><button class="btn dark" style="margin-top:12px" onclick="saveScratch()">حفظ إعدادات الكارت</button><button class="mini" style="margin-top:8px" onclick="clearScratchResult()">إلغاء نتيجة الكارت وتجربته من جديد</button></div>
@@ -315,7 +338,7 @@ function renderCart(){updateCartBadge();
  cart=cart.filter(x=>products.some(p=>String(p.id)===String(x.id)));
  if(!cart.length){
    box.innerHTML='<div class="empty">السلة فاضية 🌿<br>اختار حاجة تعجبك.</div>';
-   tot.innerHTML=""; return;
+   tot.innerHTML=scratchResultApplied?`<div class="total"><div class="line"><span>🎁 كارت الخربشة</span><b style="color:#2f8d5b">${scratchCfg.prize}</b></div><div style="font-size:10px;color:#718078;margin-top:6px">الجائزة محفوظة وستُضاف تلقائيًا عند إتمام الطلب.</div></div>`:""; return;
  }
  let sub=0;
  box.innerHTML=cart.map(x=>{
@@ -617,22 +640,51 @@ function closeUpsell(){document.getElementById('upsellModal')?.classList.remove(
 function toast(t){const x=document.getElementById('toast');if(!x)return;x.textContent=t;x.classList.add('on');clearTimeout(window.__toast);window.__toast=setTimeout(()=>x.classList.remove('on'),2200)}
 function previewUpload(inputId,imgId){const f=document.getElementById(inputId)?.files?.[0],img=document.getElementById(imgId);if(!f||!img)return;const r=new FileReader();r.onload=e=>{img.src=e.target.result;img.style.display='block';img.dataset.value=e.target.result};r.readAsDataURL(f)}
 function readUpload(inputId){return document.getElementById(inputId)?.files?.[0]||null}
-function addProduct(){const name=pName.value.trim();if(!name){toast('اكتب اسم المنتج أولًا');return}const f=readUpload('pImage');const finish=image=>{const p={id:Date.now(),name,cat:pCat.value,price:Number(pPrice.value)||0,old:Number(pOld.value)||Number(pPrice.value)||0,wholesale:Number(pWholesale.value)||0,cost:Number(pCost.value)||0,stockManaged:true,stock:Math.max(0,Number(pStock.value)||0),maxQty:Number(pMaxQty.value)||99,desc:pDesc.value.trim(),emoji:pCat.value==='vases'?'🏺':pCat.value==='offers'?'🎁':'🌿',image:image||'',care:autoCare(name)};products.push(p);localStorage.gmProductsV2=JSON.stringify(products);renderProducts();renderAdmin();toast('تمت إضافة المنتج وتوليد العناية تلقائيًا 🌿');['pName','pDesc','pPrice','pOld','pWholesale','pCost','pStock','pMaxQty'].forEach(id=>{let e=document.getElementById(id);if(e)e.value=''});};if(f){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(f)}else finish('')}
-function deleteProduct(id){products=products.filter(p=>p.id!==id);cart=cart.filter(x=>String(x.id)!==String(id));localStorage.gmProductsV2=JSON.stringify(products);saveCart();renderProducts();renderAdmin();toast('تم حذف المنتج')}
-function editProduct(id){const p=products.find(x=>x.id===id);if(!p)return;let v=prompt('اسم المنتج',p.name);if(v===null)return;p.name=v;p.price=Number(prompt('سعر البيع',p.price))||p.price;p.old=Number(prompt('السعر القديم',p.old))||p.old;p.wholesale=Number(prompt('',p.wholesale||0))||0;p.cost=Number(prompt('تكلفة المنتج',p.cost||0))||0;p.stock=Number(prompt('المخزون',p.stock??99));p.maxQty=Number(prompt('الحد الأقصى',p.maxQty||99))||99;p.care=autoCare(p.name);localStorage.gmProductsV2=JSON.stringify(products);renderProducts();renderAdmin();toast('تم تعديل المنتج')}
+async function gmAdminFetch(path,options={}){
+ const run=async token=>gmFetch(path,{...options,headers:{"x-admin-token":token,"content-type":"application/json",...(options.headers||{})}});
+ let token=sessionStorage.getItem("gmAdminToken")||localStorage.getItem("gmAdminToken")||"";
+ if(!token){token=prompt("🔐 اكتب رمز الإدارة ADMIN_TOKEN\n\nالرمز هو نفس قيمة Secret باسم ADMIN_TOKEN في Cloudflare:");if(!token)return null;}
+ try{const data=await run(token);sessionStorage.setItem("gmAdminToken",token);return data}
+ catch(e){
+   if(String(e.message||"").toLowerCase().includes("unauthorized")||String(e.message||"").includes("401")){
+     sessionStorage.removeItem("gmAdminToken");localStorage.removeItem("gmAdminToken");
+     const retry=prompt("❌ رمز الإدارة غير صحيح. اكتب ADMIN_TOKEN مرة أخرى:");
+     if(!retry)return null;
+     const data=await run(retry);sessionStorage.setItem("gmAdminToken",retry);return data;
+   }
+   toast("تعذر الحفظ على قاعدة البيانات: "+(e.message||"خطأ"));return null;
+ }
+}
+function localProductPayload(p){const sections=getSections(p);const care={...careObject(p),_sections:sections};return {name:p.name,slug:p.slug||slugifyClient(p.name),categorySlug:p.cat,description:p.desc||p.description||"",imageUrl:p.image||p.image_url||"",price:Number(p.price)||0,oldPrice:Number(p.old)||0,wholesalePrice:Number(p.wholesale)||0,costPrice:Number(p.cost)||0,stock:Math.max(0,Number(p.stock)||0),maxQty:Math.max(1,Number(p.maxQty)||99),care,sections}}
+function slugifyClient(v){return String(v||"").toLowerCase().trim().replace(/[^\p{L}\p{N}]+/gu,"-").replace(/^-|-$/g,"")}
+async function addProduct(){const name=pName.value.trim();if(!name){toast('اكتب اسم المنتج أولًا');return}const f=readUpload('pImage');const finish=async image=>{const p={id:Date.now(),name,cat:pCat.value,price:Number(pPrice.value)||0,old:Number(pOld.value)||Number(pPrice.value)||0,wholesale:Number(pWholesale.value)||0,cost:Number(pCost.value)||0,stockManaged:true,stock:Math.max(0,Number(pStock.value)||0),maxQty:Number(pMaxQty.value)||99,desc:pDesc.value.trim(),emoji:pCat.value==='vases'?'🏺':pCat.value==='offers'?'🎁':'🌿',image:image||'',care:autoCare(name)};if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/products',{method:'POST',body:JSON.stringify(localProductPayload(p))});if(!r)return;toast('تم حفظ المنتج في قاعدة البيانات ✓');await gmLoadStore();renderAdmin();}else{products.push(p);localStorage.gmProductsV2=JSON.stringify(products);renderProducts();renderAdmin();toast('تمت إضافة المنتج وتوليد العناية تلقائيًا 🌿')}['pName','pDesc','pPrice','pOld','pWholesale','pCost','pStock','pMaxQty'].forEach(id=>{let e=document.getElementById(id);if(e)e.value=''});};if(f){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(f)}else finish('')}
+async function deleteProduct(id){if(!confirm('حذف هذا المنتج نهائيًا من المتجر؟'))return;if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/products/'+encodeURIComponent(id),{method:'DELETE'});if(!r)return;products=products.filter(p=>String(p.id)!==String(id));cart=cart.filter(x=>String(x.id)!==String(id));localStorage.gmProductsV2=JSON.stringify(products);saveCart();renderProducts();renderAdmin();toast('تم حذف المنتج من المتجر وقاعدة البيانات ✓');await gmLoadStore();return}products=products.filter(p=>String(p.id)!==String(id));cart=cart.filter(x=>String(x.id)!==String(id));localStorage.gmProductsV2=JSON.stringify(products);saveCart();renderProducts();renderAdmin();toast('تم حذف المنتج')}
+function editProduct(id){
+ const p=products.find(x=>String(x.id)===String(id));if(!p)return;
+ const old=document.getElementById('gmEditProductModal');if(old)old.remove();
+ const modal=document.createElement('div');modal.id='gmEditProductModal';modal.style.cssText='position:fixed;inset:0;z-index:9999;background:#0008;display:flex;align-items:center;justify-content:center;padding:14px;overflow:auto';
+ const care=p.care||autoCare(p.name);
+ modal.innerHTML=`<div dir="rtl" style="width:min(720px,100%);max-height:94vh;overflow:auto;background:#fff;border-radius:24px;padding:18px;box-shadow:0 24px 80px #0005;color:#14221b"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px"><div><div style="font-size:10px;color:#3ba66d;font-weight:900">GREEN MOON • EDIT PRODUCT</div><h2 style="margin:4px 0">تعديل المنتج</h2></div><button type="button" class="mini" id="gmEditCancel">إغلاق ✕</button></div><div class="grid2"><div class="field"><label>اسم المنتج</label><input id="gmEName" value="${String(p.name||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}"></div><div class="field"><label>التصنيف</label><select id="gmECat"><option value="plants" ${p.cat==='plants'?'selected':''}>نباتات</option><option value="offers" ${p.cat==='offers'?'selected':''}>باقات</option><option value="vases" ${p.cat==='vases'?'selected':''}>فازات</option></select></div><div class="field"><label>سعر البيع</label><input id="gmEPrice" type="number" value="${Number(p.price)||0}"></div><div class="field"><label>السعر القديم</label><input id="gmEOld" type="number" value="${Number(p.old)||0}"></div><div class="field"><label>💼 سعر الجملة</label><input id="gmEWholesale" type="number" min="0" value="${Number(p.wholesale)||0}"></div><div class="field"><label>📦 تكلفة المنتج</label><input id="gmECost" type="number" min="0" value="${Number(p.cost)||0}"></div><div class="field"><label>📊 المخزون</label><input id="gmEStock" type="number" min="0" value="${Number(p.stock)||0}"></div><div class="field"><label>🔢 الحد الأقصى للطلب</label><input id="gmEMax" type="number" min="1" value="${Number(p.maxQty)||99}"></div><div class="field" style="grid-column:1/-1"><label>📝 الوصف</label><textarea id="gmEDesc" style="min-height:90px">${String(p.desc||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div><div class="field" style="grid-column:1/-1"><label>🌱 العناية بالنبات <span style="font-size:9px;color:#718078">(قابلة للتعديل يدويًا)</span></label><textarea id="gmECare" style="min-height:130px">${String(care).replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea><button type="button" class="mini" id="gmRegenerateCare" style="margin-top:7px">🤖 إعادة توليد العناية</button></div><div class="field" style="grid-column:1/-1"><div class="uploadBox"><b>📷 تغيير الصورة</b><div style="font-size:10px;color:#718078;margin:5px">اختياري — لو لم تختَر صورة ستظل الصورة الحالية.</div><input id="gmEImage" type="file" accept="image/*"><img id="gmEPreview" class="previewImg" style="display:${p.image?'block':'none'};max-height:160px;object-fit:contain" src="${p.image||''}"></div></div></div><div style="display:flex;gap:8px;justify-content:flex-start;margin-top:14px;flex-wrap:wrap"><button type="button" class="btn dark" id="gmEditSave">💾 حفظ التعديلات</button><button type="button" class="mini" id="gmEditCancel2">إلغاء</button></div></div>`;
+ document.body.appendChild(modal);const close=()=>modal.remove();document.getElementById('gmEditCancel').onclick=close;document.getElementById('gmEditCancel2').onclick=close;document.getElementById('gmRegenerateCare').onclick=()=>{document.getElementById('gmECare').value=autoCare(document.getElementById('gmEName').value.trim()||p.name)};document.getElementById('gmEImage').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const im=document.getElementById('gmEPreview');im.src=ev.target.result;im.style.display='block'};r.readAsDataURL(f)};
+ document.getElementById('gmEditSave').onclick=async()=>{const finish=async image=>{const payload={name:document.getElementById('gmEName').value.trim()||p.name,cat:document.getElementById('gmECat').value,price:Number(document.getElementById('gmEPrice').value)||0,old:Number(document.getElementById('gmEOld').value)||0,wholesale:Number(document.getElementById('gmEWholesale').value)||0,cost:Number(document.getElementById('gmECost').value)||0,stock:Math.max(0,Number(document.getElementById('gmEStock').value)||0),maxQty:Math.max(1,Number(document.getElementById('gmEMax').value)||99),desc:document.getElementById('gmEDesc').value.trim(),care:document.getElementById('gmECare').value.trim()||autoCare(p.name),image:p.image||''};if(image)payload.image=image;if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/products/'+encodeURIComponent(id),{method:'PUT',body:JSON.stringify({...payload,categorySlug:payload.cat})});if(!r)return;toast('تم حفظ التعديلات في قاعدة البيانات ✓');close();await gmLoadStore();renderAdmin();return}Object.assign(p,{name:payload.name,cat:payload.cat,price:payload.price,old:payload.old,wholesale:payload.wholesale,cost:payload.cost,stock:payload.stock,maxQty:payload.maxQty,desc:payload.desc,care:payload.care,image:payload.image});localStorage.gmProductsV2=JSON.stringify(products);renderProducts();renderAdmin();close();toast('تم حفظ تعديلات المنتج بنجاح 🌿')};const f=document.getElementById('gmEImage').files?.[0];if(f){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(f)}else finish('')};
+}
 function renderAdmin(){const box=document.getElementById('adminProducts');if(!box)return;box.innerHTML=products.map(p=>`<div class="adminItem"><div><b>${p.name}</b><div style="font-size:9px;color:#718078">بيع ${p.price} ج • جملة ${p.wholesale||0} ج • تكلفة ${p.cost||0} ج • مخزون ${p.stock??99} • ربح نظري ${Math.max(0,p.price-(p.cost||p.wholesale||0))} ج</div></div><div style="display:flex;gap:5px"><button class="mini" onclick="editProduct(${p.id})">تعديل</button><button class="mini" onclick="deleteProduct(${p.id})">حذف</button></div></div>`).join('');}
 function loadAreas(){const gov=document.getElementById('cGov')?.value,a=document.getElementById('cArea');if(!a)return;const areas={القاهرة:['مدينة نصر','مصر الجديدة','المعادي','التجمع','وسط البلد'],الجيزة:['الدقي','المهندسين','العجوزة','الهرم','6 أكتوبر'],الإسكندرية:['سموحة','سيدي جابر','العصافرة','ميامي'],القليوبية:['بنها','شبرا الخيمة','العبور'],الشرقية:['الزقازيق','العاشر من رمضان'],الدقهلية:['المنصورة','طلخا'],البحيرة:['دمنهور','كفر الدوار'],الغربية:['طنطا','المحلة'],المنوفية:['شبين الكوم'],"كفر الشيخ":['كفر الشيخ'],دمياط:['دمياط'],بورسعيد:['بورسعيد'],الإسماعيلية:['الإسماعيلية'],السويس:['السويس'],أسوان:['أسوان'],الأقصر:['الأقصر'],أسيوط:['أسيوط'],سوهاج:['سوهاج'],قنا:['قنا']};a.innerHTML='<option value="">اختر المنطقة</option>'+(areas[gov]||['المنطقة']).map(x=>`<option>${x}</option>`).join('')}
 function showCare(id){const p=products.find(x=>x.id===id);if(!p)return;const key=Object.keys(careDB).find(k=>(p.name||'').includes(k))||'عام';const c=careDB[key];document.getElementById('aboutCompany').textContent=`طريقة العناية بـ ${p.name}: ${p.care||autoCare(p.name)}`;document.getElementById('aboutVision').textContent=`الإضاءة: ${c.light} الري: ${c.water} التربة: ${c.soil} التسميد: ${c.feed}`;openAbout()}
 function openAbout(){document.getElementById('aboutModal')?.classList.add('show');document.getElementById('aboutOwnerName').textContent=settings.ownerName||'صاحب Green Moon';document.getElementById('aboutOwnerBio').textContent=settings.ownerBio||'رؤية Green Moon تبدأ من اختيار النبات المناسب لكل مكان.';document.getElementById('aboutCompany').textContent=settings.about||'';document.getElementById('aboutVision').textContent=settings.vision||'';document.getElementById('aboutAddr').textContent=settings.address||''}
 function closeAbout(){document.getElementById('aboutModal')?.classList.remove('show')}
-function saveSettings(){settings={...settings,name:sName.value||settings.name,wa:sWa.value||settings.wa,address:sAddress.value||settings.address,msg:sMsg.value||settings.msg,about:sAbout.value||'',ownerName:sOwnerName.value||'',ownerBio:sOwnerBio.value||'',vision:sVision.value||'',upsellMargin:Math.max(1,Math.min(100,Number(document.getElementById("sUpsellMargin")?.value)||22))};localStorage.gmSettingsV2=JSON.stringify(settings);applySettings();toast('تم حفظ إعدادات المتجر ✓')}
+async function saveSettings(){
+ settings={...settings,name:sName.value||settings.name,wa:sWa.value||settings.wa,address:sAddress.value||settings.address,msg:sMsg.value||settings.msg,about:sAbout.value||'',ownerName:sOwnerName.value||'',ownerBio:sOwnerBio.value||'',vision:sVision.value||'',upsellMargin:Math.max(1,Math.min(100,Number(document.getElementById("sUpsellMargin")?.value)||22)),welcomeSpeech:{enabled:document.getElementById('welcomeSpeechEnabled')?.checked!==false,text:(document.getElementById('welcomeSpeechText')?.value||'Welcome to Green Moon, where every plant brings life to your space.').trim(),lang:document.getElementById('welcomeSpeechLang')?.value||'en-US',rate:Number(document.getElementById('welcomeSpeechRate')?.value||.95),repeat:document.getElementById('welcomeSpeechRepeat')?.checked!==false}};
+ localStorage.gmSettingsV2=JSON.stringify(settings);
+ if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/settings',{method:'PUT',body:JSON.stringify(settings)});if(!r)return;window.GM_SERVER_STORE=window.GM_SERVER_STORE||{};window.GM_SERVER_STORE.settings={...(window.GM_SERVER_STORE.settings||{}),...settings}}
+ applySettings();fillWelcomeSettings(settings.welcomeSpeech);toast('تم حفظ إعدادات المتجر وشاشة الترحيب الصوتية ✓')}
 function applySettings(){document.title=settings.name||'Green Moon';document.getElementById('footName')&&(document.getElementById('footName').textContent=settings.name);document.getElementById('footWa')&&(document.getElementById('footWa').textContent=settings.wa);document.getElementById('footAddress')&&(document.getElementById('footAddress').textContent=settings.address);['sName','sWa','sAddress','sMsg','sAbout','sOwnerName','sOwnerBio','sVision'].forEach((id,i)=>{const e=document.getElementById(id);if(!e)return;const k=['name','wa','address','msg','about','ownerName','ownerBio','vision'][i];e.value=settings[k]||''})}
 function saveTheme(){theme={main:tMain.value,gold:tGold.value,bg:tBg.value};localStorage.gmThemeV2=JSON.stringify(theme);applyTheme();toast('تم تطبيق الثيم 🎨')}
 function applyTheme(){document.documentElement.style.setProperty('--g',theme.main);document.documentElement.style.setProperty('--g2',theme.gold);document.documentElement.style.setProperty('--bg',theme.bg)}
 function saveOffer(){offer={title:oTitle.value,price:Number(oPrice.value)||0,old:Number(oOld.value)||0,minutes:Number(oMinutes.value)||15};localStorage.gmOfferV2=JSON.stringify(offer);toast('تم حفظ العرض ⚡')}
-function saveScratch(){scratchCfg={prize:scratchPrize.value||scratchCfg.prize,uses:Number(scratchUses.value)||1,invoiceDelta:Number(scratchDelta.value)||0};localStorage.gmScratchV2=JSON.stringify(scratchCfg);toast('تم حفظ إعدادات الخربشة 🎟️')}
-function clearScratchResult(){scratchResultApplied=false;localStorage.removeItem('gmScratchAppliedV2');renderCart();toast('تم تصفير نتيجة الخربشة')}
-function fillSettings(){applySettings();if(typeof tMain!=="undefined"&&tMain)tMain.value=theme.main;if(typeof tGold!=="undefined"&&tGold)tGold.value=theme.gold;if(typeof tBg!=="undefined"&&tBg)tBg.value=theme.bg;if(typeof oTitle!=="undefined"&&oTitle)oTitle.value=offer.title;if(typeof oPrice!=="undefined"&&oPrice)oPrice.value=offer.price;if(typeof oOld!=="undefined"&&oOld)oOld.value=offer.old;if(typeof oMinutes!=="undefined"&&oMinutes)oMinutes.value=offer.minutes;if(typeof scratchPrize!=="undefined"&&scratchPrize)scratchPrize.value=scratchCfg.prize;if(typeof scratchUses!=="undefined"&&scratchUses)scratchUses.value=scratchCfg.uses;if(typeof scratchDelta!=="undefined"&&scratchDelta)scratchDelta.value=scratchCfg.invoiceDelta;const u=document.getElementById("sUpsellMargin");if(u)u.value=settings.upsellMargin||22}
+function saveScratch(){scratchCfg={prize:scratchPrize.value||scratchCfg.prize,uses:Number(scratchUses.value)||1,invoiceDelta:Number(scratchDelta.value)||0};localStorage.gmScratchV2=JSON.stringify(scratchCfg);clearScratchResult();toast('تم حفظ إعدادات الخربشة 🎟️')}
+function clearScratchResult(){scratchResultApplied=false;localStorage.removeItem('gmScratchAppliedV2');localStorage.removeItem('gmScratchRewardV2');const card=document.querySelector('.scratchCard');if(card){card.classList.remove('revealed');const canvas=document.getElementById('scratchCanvas');if(canvas)canvas.style.display='block';const hint=document.querySelector('.scratchHint');if(hint)hint.style.display='';}renderCart();setTimeout(()=>initScratch(),50);toast('تم تصفير نتيجة الخربشة')}
+function fillSettings(){applySettings();fillMusicSettings?.(window.GM_SERVER_STORE?.settings?.magazineMusic);fillWelcomeSettings(settings.welcomeSpeech||window.GM_SERVER_STORE?.settings?.welcomeSpeech);if(typeof tMain!=="undefined"&&tMain)tMain.value=theme.main;if(typeof tGold!=="undefined"&&tGold)tGold.value=theme.gold;if(typeof tBg!=="undefined"&&tBg)tBg.value=theme.bg;if(typeof oTitle!=="undefined"&&oTitle)oTitle.value=offer.title;if(typeof oPrice!=="undefined"&&oPrice)oPrice.value=offer.price;if(typeof oOld!=="undefined"&&oOld)oOld.value=offer.old;if(typeof oMinutes!=="undefined"&&oMinutes)oMinutes.value=offer.minutes;if(typeof scratchPrize!=="undefined"&&scratchPrize)scratchPrize.value=scratchCfg.prize;if(typeof scratchUses!=="undefined"&&scratchUses)scratchUses.value=scratchCfg.uses;if(typeof scratchDelta!=="undefined"&&scratchDelta)scratchDelta.value=scratchCfg.invoiceDelta;const u=document.getElementById("sUpsellMargin");if(u)u.value=settings.upsellMargin||22}
 
 function validateCustomer(){const ids=['cName','cPhone','cWhats','cGov','cArea','cBuilding','cFloor','cApartment'];for(const id of ids){const e=document.getElementById(id);if(!e?.value.trim()){e?.focus();toast('من فضلك أكمل بيانات الطلب 📦');return false}}return true}
 function cartContext(){return cart.map(x=>products.find(p=>p.id===x.id)).filter(Boolean)}
@@ -641,7 +693,101 @@ function smartOfferPrice(p){const base=Number(p.wholesale||p.cost||p.price||0);c
 function prepareOrder(){if(!validateCustomer())return;const p=smartAddOn();const box=document.getElementById('upsellContent');if(!p){confirmOrder();return}const special=smartOfferPrice(p),normal=p.price;box.innerHTML=`<div class="upsellCard"><span class="aiMini">🤖 اقتراح Green Moon الذكي</span><h3 style="margin:4px 0 8px;font-size:23px">ممكن تضيف ${p.name} لطلبك؟</h3><div class="upsellProduct"><div class="upsellPic">${p.image?`<img src="${p.image}">`:(p.emoji||'🌿')}</div><div><div class="upsellReason">بناءً على المنتجات اللي اخترتها، الإضافة دي مكملة للطلب وممكن تستفيد منها مع نباتاتك. تم اختيار إضافة مناسبة لطلبك بسعر خاص لفترة محدودة من Green Moon.</div><div class="upsellPrice"><b>${special} ج</b><span>${normal} ج</span></div><small style="color:#b8d7c4">سعر خاص قبل إرسال الطلب</small></div></div><div class="upsellButtons"><button class="btn gold" onclick="acceptSmartAddOn(${p.id},${special})">أيوه، أضفها للطلب ✨</button><button class="mini" style="background:#ffffff18;color:#fff;border-color:#ffffff25" onclick="skipSmartAddOn()">لا، أكمل الطلب</button></div></div>`;document.getElementById('upsellModal').classList.add('show')}
 function acceptSmartAddOn(id,price){const p=products.find(x=>x.id===id);if(!p)return;let c=cart.find(x=>String(x.id)===String(id));if(c){c.q=Math.min(Number(p.maxQty||99),c.q+1);c.smartPrice=price}else{cart.push({id:id,q:1,smartPrice:price})}saveCart();closeUpsell();confirmOrder()}
 function skipSmartAddOn(){closeUpsell();confirmOrder()}
-function confirmOrder(){if(!validateCustomer())return;let sub=0;const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id),price=x.smartPrice||p.price;sub+=price*x.q;return `• ${p.name} × ${x.q} = ${price*x.q} ج`}).join('\n');const delivery=sub>=700?0:50,scratchDelta=scratchResultApplied?Number(scratchCfg.invoiceDelta||0):0,total=Math.max(0,sub+delivery+scratchDelta);const order={id:Date.now(),total,profit:cart.reduce((a,x)=>{const p=products.find(y=>y.id===x.id);return a+((x.smartPrice||p.price)-Number(p.cost||p.wholesale||0))*x.q},0),customer:{name:cName.value,phone:cPhone.value,whats:cWhats.value,gov:cGov.value,area:cArea.value,building:cBuilding.value,floor:cFloor.value,apartment:cApartment.value,notes:cNotes.value},lines,date:new Date().toISOString()};const orders=JSON.parse(localStorage.gmOrdersV2||'[]');orders.push(order);localStorage.gmOrdersV2=JSON.stringify(orders);cart.forEach(x=>{const p=products.find(y=>y.id===x.id);if(p)p.stock=Math.max(0,Number(p.stock??99)-x.q)});localStorage.gmProductsV2=JSON.stringify(products);const msg=`${settings.msg}\n\nطلب جديد من الموقع 🌿\n\n${lines}\n\nالتوصيل: ${delivery?delivery+' ج':'مجاني 🎉'}\nنتيجة الخربشة: ${scratchDelta} ج\nالإجمالي النهائي: ${total} ج\n\nبيانات العميل:\nالاسم: ${order.customer.name}\nالجوال: ${order.customer.phone}\nواتساب: ${order.customer.whats}\nالمحافظة: ${order.customer.gov}\nالمنطقة: ${order.customer.area}\nالعمارة: ${order.customer.building}\nالدور: ${order.customer.floor}\nالشقة: ${order.customer.apartment}\nملاحظات: ${order.customer.notes||'-'}`;window.open('https://wa.me/'+settings.wa+'?text='+encodeURIComponent(msg),'_blank');cart=[];localStorage.gmCartV2='[]';saveCart();closeCheckout();updateDashboard();toast('تم تجهيز الطلب وإرساله لواتساب 💚')}
+function confirmOrder(){if(!validateCustomer())return;let sub=0;const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id),price=x.smartPrice||p.price;sub+=price*x.q;return `• ${p.name} × ${x.q} = ${price*x.q} ج`}).join('\n');const delivery=sub>=700?0:50,scratchDelta=scratchResultApplied?Number(scratchCfg.invoiceDelta||0):0,total=Math.max(0,sub+delivery+scratchDelta);const rewardLine=scratchResultApplied?`🎁 هدية كارت الخربشة: ${scratchCfg.prize} — 0 ج${scratchDelta?` | ${scratchDelta<0?'خصم ':'إضافة '}${Math.abs(scratchDelta)} ج`:''}`:'';const invoiceLines=[lines,rewardLine].filter(Boolean).join('\n');const order={id:Date.now(),total,profit:cart.reduce((a,x)=>{const p=products.find(y=>y.id===x.id);return a+((x.smartPrice||p.price)-Number(p.cost||p.wholesale||0))*x.q},0),reward:scratchResultApplied?{text:scratchCfg.prize,invoiceDelta:scratchDelta}:null,customer:{name:cName.value,phone:cPhone.value,whats:cWhats.value,gov:cGov.value,area:cArea.value,building:cBuilding.value,floor:cFloor.value,apartment:cApartment.value,notes:cNotes.value},lines:invoiceLines,date:new Date().toISOString()};const orders=JSON.parse(localStorage.gmOrdersV2||'[]');orders.push(order);localStorage.gmOrdersV2=JSON.stringify(orders);cart.forEach(x=>{const p=products.find(y=>y.id===x.id);if(p)p.stock=Math.max(0,Number(p.stock??99)-x.q)});localStorage.gmProductsV2=JSON.stringify(products);const msg=`${settings.msg}\n\nطلب جديد من الموقع 🌿\n\n${invoiceLines}\n\nالتوصيل: ${delivery?delivery+' ج':'مجاني 🎉'}\nالإجمالي النهائي: ${total} ج\n\nبيانات العميل:\nالاسم: ${order.customer.name}\nالجوال: ${order.customer.phone}\nواتساب: ${order.customer.whats}\nالمحافظة: ${order.customer.gov}\nالمنطقة: ${order.customer.area}\nالعمارة: ${order.customer.building}\nالدور: ${order.customer.floor}\nالشقة: ${order.customer.apartment}\nملاحظات: ${order.customer.notes||'-'}`;window.open('https://wa.me/'+settings.wa+'?text='+encodeURIComponent(msg),'_blank');cart=[];localStorage.gmCartV2='[]';saveCart();closeCheckout();updateDashboard();toast('تم تجهيز الطلب وإرساله لواتساب 💚')}
+
+function initScratch(){
+  const stage=document.getElementById('scratchStage');
+  const card=document.querySelector('.scratchCard');
+  const canvas=document.getElementById('scratchCanvas');
+  const prize=document.querySelector('.scratchPrize');
+  if(!stage||!card||!canvas||!prize)return;
+  prize.innerHTML=`🎉 مبروك!<br><span style="font-size:15px">${scratchCfg.prize||'هديتك جاهزة 🎁'}</span>`;
+  const used=!!scratchResultApplied;
+  const hint=document.querySelector('.scratchHint');
+  if(used){
+    card.classList.remove('revealed');
+    card.classList.add('used');
+    canvas.style.display='none';
+    if(hint){hint.textContent='🎁 تمت إضافة هديتك للفاتورة';hint.style.display='block';}
+    return;
+  }
+  card.classList.remove('revealed','used');
+  canvas.style.display='block';
+  if(hint){hint.textContent='اسحب بإصبعك للخربشة';hint.style.display='block';}
+  const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+  const rect=card.getBoundingClientRect();
+  const w=Math.max(1,Math.round(rect.width)),h=Math.max(1,Math.round(rect.height));
+  canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+  canvas.style.width=w+'px';canvas.style.height=h+'px';
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  // Draw the actual scratch foil on the canvas. Erasing this canvas reveals the prize underneath.
+  ctx.globalCompositeOperation='source-over';
+  const g=ctx.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,'#8b8b8b');g.addColorStop(.22,'#eeeeee');g.addColorStop(.45,'#a3a3a3');g.addColorStop(.68,'#f5f5f5');g.addColorStop(1,'#777777');
+  ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+  for(let i=0;i<900;i++){
+    const x=Math.random()*w,y=Math.random()*h,r=Math.random()*1.6+.3;
+    ctx.fillStyle=Math.random()>.5?'rgba(255,255,255,.42)':'rgba(40,40,40,.18)';
+    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();
+  }
+  ctx.strokeStyle='rgba(255,255,255,.22)';ctx.lineWidth=2;
+  for(let x=-h;x<w+h;x+=18){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+h,h);ctx.stroke();}
+  ctx.fillStyle='#3d3d3d';ctx.font='900 23px system-ui, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('خربش هنا',w/2,h/2);
+  ctx.globalCompositeOperation='destination-out';
+  let drawing=false,lastX=null,lastY=null,erasedSamples=0,revealed=false;
+  function pos(e){const r=canvas.getBoundingClientRect();const t=e.touches?.[0]||e;return {x:t.clientX-r.left,y:t.clientY-r.top};}
+  function erase(x,y){
+    ctx.save();ctx.globalCompositeOperation='destination-out';
+    ctx.beginPath();ctx.arc(x,y,25,0,Math.PI*2);ctx.fill();
+    if(lastX!==null&&lastY!==null){ctx.lineWidth=50;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(x,y);ctx.stroke();}
+    ctx.restore();lastX=x;lastY=y;erasedSamples++;
+    if(erasedSamples%10===0)checkReveal();
+  }
+  function start(e){if(revealed)return;drawing=true;const p=pos(e);lastX=null;lastY=null;erase(p.x,p.y);scratchAudioTick();e.preventDefault?.();}
+  function move(e){if(!drawing||revealed)return;const p=pos(e);erase(p.x,p.y);if(erasedSamples%3===0)scratchAudioTick();e.preventDefault?.();}
+  function end(){if(!drawing)return;drawing=false;lastX=lastY=null;checkReveal();}
+  canvas.onpointerdown=start;canvas.onpointermove=move;canvas.onpointerup=end;canvas.onpointercancel=end;canvas.onpointerleave=()=>{if(drawing)end()};
+  canvas.ontouchstart=start;canvas.ontouchmove=move;canvas.ontouchend=end;
+  function checkReveal(){
+    if(revealed)return;
+    try{
+      const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+      let clear=0,total=data.length/4;
+      for(let i=3;i<data.length;i+=4)if(data[i]<25)clear++;
+      if(clear/total>=.42){
+        revealed=true;
+        card.classList.add('revealed');
+        canvas.style.display='none';
+        if(hint)hint.style.display='none';
+        scratchResultApplied=true;
+        localStorage.gmScratchAppliedV2='true';
+        localStorage.gmScratchRewardV2=JSON.stringify({prize:scratchCfg.prize,invoiceDelta:scratchCfg.invoiceDelta,at:new Date().toISOString()});
+        renderCart();
+        toast(`🎁 ${scratchCfg.prize} — اتضافت تلقائيًا للفاتورة`);
+        // Show the revealed prize briefly, then hide it and lock the card.
+        setTimeout(()=>{
+          card.classList.remove('revealed');
+          card.classList.add('used');
+          if(hint){hint.textContent='🎁 تمت إضافة هديتك للفاتورة';hint.style.display='block';}
+        },3500);
+      }
+    }catch(e){console.error('scratch reveal check failed',e);}
+  }
+}
+let scratchAudioCtx=null,scratchNoise=null;
+function scratchAudioTick(){
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    scratchAudioCtx=scratchAudioCtx||new AC();
+    if(scratchAudioCtx.state==='suspended')scratchAudioCtx.resume();
+    const buffer=scratchAudioCtx.createBuffer(1,scratchAudioCtx.sampleRate*.045,scratchAudioCtx.sampleRate),data=buffer.getChannelData(0);
+    for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*Math.pow(1-i/data.length,1.7);
+    const src=scratchAudioCtx.createBufferSource(),gain=scratchAudioCtx.createGain(),filter=scratchAudioCtx.createBiquadFilter();
+    filter.type='bandpass';filter.frequency.value=1500;filter.Q.value=.65;gain.gain.value=.035;src.buffer=buffer;src.connect(filter).connect(gain).connect(scratchAudioCtx.destination);src.start();
+  }catch(e){}
+}
 
 // Start up safely after all functions exist.
 window.addEventListener('DOMContentLoaded',()=>{try{applySettings();applyTheme();renderProducts();renderCart();renderAdmin();fillSettings();updateDashboard();startMainOfferCountdown();if(typeof initScratch==='function')setTimeout(()=>initScratch(),80);}catch(e){console.error('Green Moon init error',e);}});
@@ -722,18 +868,36 @@ async function gmLoadStore() {
   try {
     window.GM_SERVER_STORE = await gmFetch("/store");
     if (window.GM_SERVER_STORE?.products) {
-      // Keep the existing UI while using the server as the source of truth.
-      products = window.GM_SERVER_STORE.products.map(p => ({
-        ...p,
-        id:String(p.id),
-        old:Number(p.old_price||p.oldPrice||p.price||0),
-        price:Number(p.price||0),
-        stock:Number(p.stock||0),
-        maxQty:Number(p.max_qty||p.maxQty||99),
-        wholesale:0,
-        cost:0
-      }));
-      if (typeof renderProducts === "function") renderProducts(products);
+      const cats=window.GM_SERVER_STORE.categories||[];
+      const byId=new Map(cats.map(c=>[String(c.id),c]));
+      const oldById=new Map((products||[]).map(p=>[String(p.id),p]));
+      products = window.GM_SERVER_STORE.products.map(p => {
+        const oldLocal=oldById.get(String(p.id))||{};
+        const cat=byId.get(String(p.category_id));
+        let care=p.care_json||{};
+        try{care=typeof care==='string'?JSON.parse(care||'{}'):care}catch(_){care={}}
+        return {
+          ...p,
+          id:String(p.id),
+          cat:cat?.slug||oldLocal.cat||'plants',
+          desc:p.description||'',
+          image:p.image_url||'',
+          old:Number(p.old_price||p.oldPrice||p.price||0),
+          price:Number(p.price||0),
+          stock:Number(p.stock||0),
+          maxQty:Number(p.max_qty||p.maxQty||99),
+          wholesale:Number(oldLocal.wholesale||0),
+          cost:Number(oldLocal.cost||0),
+          care,
+          stockManaged:true
+        };
+      });
+      localStorage.gmProductsV2=JSON.stringify(products);
+      if (window.GM_SERVER_STORE.settings?.magazineMusic && typeof window.GM_SET_MAGAZINE_MUSIC === "function") {
+        window.GM_SET_MAGAZINE_MUSIC(window.GM_SERVER_STORE.settings.magazineMusic);
+      }
+      if (typeof renderProducts === "function") renderProducts();
+      updateDashboard?.();
     }
   } catch (e) {
     console.warn("Server store unavailable; local demo mode retained.", e);
@@ -754,7 +918,7 @@ document.addEventListener("DOMContentLoaded", () => setTimeout(gmLoadStore, 250)
   if(!audio||!box)return;
 
   let cfg=JSON.parse(localStorage.getItem("gmMagazineMusicV1")||"null")||{
-    enabled:true, url:"", volume:.35, autoplay:true, loop:true
+    enabled:true, url:"/default-music.mp3", volume:.35, autoplay:true, loop:true
   };
 
   function render(){
@@ -763,14 +927,16 @@ document.addEventListener("DOMContentLoaded", () => setTimeout(gmLoadStore, 250)
     audio.volume=Math.max(0,Math.min(1,Number(cfg.volume)||.35));
     volume.value=audio.volume;
     if(cfg.url) audio.src=cfg.url;
+    else audio.src="/default-music.mp3";
   }
   function setIcon(){
     toggle.textContent=audio.paused?"▶":"❚❚";
     toggle.setAttribute("aria-label",audio.paused?"تشغيل الموسيقى":"إيقاف الموسيقى");
   }
   async function play(){
-    if(!cfg.enabled||!cfg.url)return;
+    if(!cfg.enabled)return;
     try{
+      if(cfg.url && audio.src!==new URL(cfg.url,location.href).href) audio.src=cfg.url;
       await audio.play();
       fallback.style.display="none";
       setIcon();
@@ -801,4 +967,179 @@ document.addEventListener("DOMContentLoaded", () => setTimeout(gmLoadStore, 250)
   };
 })();
 </script>
+
+<script>
+/* ===== Green Moon production UX upgrade ===== */
+const GM_SECTIONS=[
+ {id:'offers',icon:'🔥',title:'العروض',sub:'عروض وخصومات حالية'},
+ {id:'best-sellers',icon:'🏆',title:'الأكثر مبيعًا',sub:'اختيارات العملاء'},
+ {id:'best-savings',icon:'💰',title:'الأكثر توفيرًا',sub:'أكبر فرق بين السعرين'},
+ {id:'most-requested',icon:'❤️',title:'الأكثر طلبًا',sub:'منتجات عليها إقبال'},
+ {id:'new',icon:'✨',title:'وصل حديثًا',sub:'أحدث إضافات المتجر'},
+ {id:'featured',icon:'🌿',title:'اختيارات Green Moon',sub:'ترشيحاتنا المميزة'},
+ {id:'plants',icon:'🪴',title:'نباتات الزينة',sub:'نباتات طبيعية مختارة'},
+ {id:'vases-accessories',icon:'🏺',title:'فازات وإكسسوارات',sub:'تفاصيل تكمل نباتاتك'}
+];
+function escapeAttr(v){return String(v??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function careObject(p){let c=p?.care;if(typeof c==='string'){try{c=JSON.parse(c||'{}')}catch(_){c={text:c}}}return c&&typeof c==='object'?c:{}}
+function getSections(p){
+ const c=careObject(p); let s=Array.isArray(p?.sections)?p.sections:Array.isArray(c._sections)?c._sections:[];
+ if(!s.length){
+   if(p?.cat==='offers')s.push('offers');
+   if(p?.cat==='plants')s.push('plants');
+   if(p?.cat==='vases')s.push('vases-accessories');
+   if(Number(p?.old)>Number(p?.price))s.push('best-savings');
+ }
+ return [...new Set(s)];
+}
+function withSections(p,sections){p.sections=[...new Set(sections||[])];p.care={...careObject(p),_sections:p.sections};delete p.care.text;return p}
+function sectionLabel(id){return GM_SECTIONS.find(x=>x.id===id)?.title||'كل المنتجات'}
+function sectionCounts(){const out={};GM_SECTIONS.forEach(s=>out[s.id]=0);products.forEach(p=>getSections(p).forEach(s=>{if(out[s]!==undefined)out[s]++}));return out}
+function renderSectionHub(){
+ const box=document.getElementById('sectionGrid');if(!box)return;const counts=sectionCounts();
+ box.innerHTML=GM_SECTIONS.map(s=>`<button type="button" class="categoryCard" data-cat="${s.id}" onclick="showSection('${s.id}')"><span>${s.icon}</span><b>${s.title}</b><small>${s.sub} • ${counts[s.id]||0} منتج</small></button>`).join('');
+}
+let activeSection='all';
+function showSection(id){
+ activeSection=id||'all';
+ document.querySelectorAll('.categoryCard').forEach(x=>x.classList.toggle('active',x.dataset.cat===activeSection));
+ const titles={all:['كل المنتجات','تصفح كل اختيارات Green Moon'],plants:['نباتات الزينة','نباتات طبيعية لمختلف المساحات'],offers:['العروض','أفضل العروض الحالية'],vases:['الفازات','فازات تناسب نباتاتك']};
+ const s=GM_SECTIONS.find(x=>x.id===activeSection);
+ document.getElementById('productsTitle').textContent=titles[activeSection]?.[0]||s?.title||'كل المنتجات';
+ document.getElementById('productsSub').textContent=titles[activeSection]?.[1]||s?.sub||'تصفح كل اختيارات Green Moon.';
+ document.querySelectorAll('#products .chip').forEach(x=>x.classList.remove('on'));
+ const chip=[...document.querySelectorAll('#products .chip')].find(x=>x.textContent.trim()===({'all':'الكل','plants':'نباتات','offers':'عروض','vases':'فازات'}[activeSection]||''));if(chip)chip.classList.add('on');
+ filterProducts();
+ if(id!=='all')document.getElementById('products')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function productMatchesSection(p){
+ if(activeSection==='all')return true;
+ const s=getSections(p); if(s.includes(activeSection))return true;
+ if(activeSection==='best-savings')return Number(p.old)>Number(p.price);
+ if(activeSection==='plants')return p.cat==='plants';
+ if(activeSection==='offers')return p.cat==='offers';
+ if(activeSection==='vases-accessories')return p.cat==='vases';
+ return false;
+}
+function renderProducts(listOrSection='all'){
+ const grid=document.getElementById('productsGrid');if(!grid)return;
+ let list=Array.isArray(listOrSection)?listOrSection:products.filter(p=>productMatchesSection(p));
+ grid.innerHTML=list.map(p=>{
+   const savings=Math.max(0,Number(p.old||0)-Number(p.price||0));
+   const badge=getSections(p).includes('best-savings')&&savings>0?'الأكثر توفيرًا':getSections(p).includes('best-sellers')?'الأكثر مبيعًا':getSections(p).includes('offers')||p.cat==='offers'?'عرض مميز':getSections(p).includes('new')?'وصل حديثًا':p.cat==='vases'?'إضافة أنيقة':'اختيار Green Moon';
+   const img=p.image?`<img loading="lazy" decoding="async" src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}" style="width:100%;height:100%;object-fit:cover">`:plantSVG();
+   const old=Number(p.old||0)>Number(p.price||0)?`<span class="old">${Number(p.old)} ج</span>`:'';
+   return `<article class="card"><div class="pic"><span class="tag">${badge}</span><button class="fav" onclick="toast('اتضاف للمفضلة 💚')">♡</button>${img}</div><div class="info"><button class="favBtn" onclick="toggleFavorite('${String(p.id)}')">♡</button><h3>${escapeHtml(p.name)}</h3><div class="desc">${escapeHtml(p.desc||'')}</div><div class="price"><b>${Number(p.price||0)} ج</b>${old}</div><div class="productQty"><button onclick="qty('${String(p.id)}',-1)">−</button><strong id="qty-${String(p.id)}">${cart.find(x=>String(x.id)===String(p.id))?.q||0}</strong><button onclick="qty('${String(p.id)}',1)">+</button></div>${p.cat==='plants'?`<button class="mini" style="width:100%;margin-top:7px" onclick="showCare('${String(p.id)}')">🌿 طريقة العناية</button>`:''}</div></article>`;
+ }).join('')||'<div class="empty" style="grid-column:1/-1">القسم ده لسه مفيهوش منتجات 🌿</div>';
+}
+function filterProducts(){
+ const term=(document.getElementById('productSearch')?.value||'').trim().toLowerCase();
+ let list=products.filter(productMatchesSection).filter(p=>(`${p.name} ${p.desc||''}`).toLowerCase().includes(term));
+ const sort=document.getElementById('sortProducts')?.value||'featured';
+ if(sort==='priceLow')list.sort((a,b)=>Number(a.price)-Number(b.price));
+ if(sort==='priceHigh')list.sort((a,b)=>Number(b.price)-Number(a.price));
+ if(sort==='name')list.sort((a,b)=>String(a.name).localeCompare(String(b.name),'ar'));
+ renderProducts(list);
+}
+function renderSectionChecks(targetId,selected){const box=document.getElementById(targetId);if(!box)return;const set=new Set(selected||[]);box.innerHTML=GM_SECTIONS.map(s=>`<label style="display:flex;gap:7px;align-items:center;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:11px;font-size:10px"><input type="checkbox" value="${s.id}" ${set.has(s.id)?'checked':''}>${s.icon} ${s.title}</label>`).join('');box.style.display='grid';box.style.gridTemplateColumns='repeat(2,1fr)';box.style.gap='7px'}
+function readSectionChecks(id){return [...(document.querySelectorAll('#'+id+' input[type=checkbox]:checked')||[])].map(x=>x.value)}
+function careTextFromProduct(p){const c=careObject(p);delete c._sections;return Object.keys(c).length?JSON.stringify(c,null,2):(typeof p?.care==='string'?p.care:autoCare(p?.name||''))}
+function localProductPayload(p){const c={...careObject(p),_sections:getSections(p)};return {name:p.name,slug:p.slug||slugifyClient(p.name),categorySlug:p.cat,description:p.desc||p.description||'',imageUrl:p.image||p.image_url||'',price:Number(p.price)||0,oldPrice:Number(p.old)||0,wholesalePrice:Number(p.wholesale)||0,costPrice:Number(p.cost)||0,stock:Math.max(0,Number(p.stock)||0),maxQty:Math.max(1,Number(p.maxQty)||99),care:c,sections:getSections(p)}}
+async function addProduct(){
+ const name=document.getElementById('pName')?.value.trim();if(!name){toast('اكتب اسم المنتج أولًا');return}
+ const f=readUpload('pImage');
+ const finish=async image=>{
+   const p={id:Date.now(),name,cat:document.getElementById('pCat').value,price:Number(document.getElementById('pPrice').value)||0,old:Number(document.getElementById('pOld').value)||Number(document.getElementById('pPrice').value)||0,wholesale:Number(document.getElementById('pWholesale').value)||0,cost:Number(document.getElementById('pCost').value)||0,stockManaged:true,stock:Math.max(0,Number(document.getElementById('pStock').value)||0),maxQty:Number(document.getElementById('pMaxQty').value)||99,desc:document.getElementById('pDesc').value.trim(),emoji:'🌿',image:image||'',care:{},sections:readSectionChecks('pSections')};
+   p.care={...careObject(p),_sections:p.sections};
+   if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/products',{method:'POST',body:JSON.stringify(localProductPayload(p))});if(!r)return;toast('تم حفظ المنتج في قاعدة البيانات ✓');await gmLoadStore();}
+   else{products.push(withSections(p,p.sections));localStorage.gmProductsV2=JSON.stringify(products)}
+   renderSectionHub();filterProducts();renderAdmin();
+   ['pName','pDesc','pPrice','pOld','pWholesale','pCost','pStock','pMaxQty'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});document.getElementById('pImage')&&(document.getElementById('pImage').value='');renderSectionChecks('pSections',[]);
+ };
+ if(f){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(f)}else finish('');
+}
+function editProduct(id){
+ const p=products.find(x=>String(x.id)===String(id));if(!p)return;const old=document.getElementById('gmEditProductModal');if(old)old.remove();
+ const modal=document.createElement('div');modal.id='gmEditProductModal';modal.style.cssText='position:fixed;inset:0;z-index:9999;background:#0008;display:flex;align-items:center;justify-content:center;padding:14px;overflow:auto';
+ const selected=getSections(p),careText=careTextFromProduct(p);
+ modal.innerHTML=`<div dir="rtl" style="width:min(760px,100%);max-height:94vh;overflow:auto;background:#fff;border-radius:24px;padding:18px;box-shadow:0 24px 80px #0005;color:#14221b"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div><div style="font-size:10px;color:#3ba66d;font-weight:900">GREEN MOON • EDIT PRODUCT</div><h2 style="margin:4px 0">تعديل المنتج</h2></div><button class="mini" id="gmEditCancel">إغلاق ✕</button></div><div class="grid2"><div class="field"><label>اسم المنتج</label><input id="gmEName" value="${escapeAttr(p.name)}"></div><div class="field"><label>التصنيف الأساسي</label><select id="gmECat"><option value="plants" ${p.cat==='plants'?'selected':''}>نباتات</option><option value="offers" ${p.cat==='offers'?'selected':''}>باقات</option><option value="vases" ${p.cat==='vases'?'selected':''}>فازات</option></select></div><div class="field"><label>سعر البيع</label><input id="gmEPrice" type="number" value="${Number(p.price)||0}"></div><div class="field"><label>السعر القديم</label><input id="gmEOld" type="number" value="${Number(p.old)||0}"></div><div class="field"><label>💼 سعر الجملة</label><input id="gmEWholesale" type="number" value="${Number(p.wholesale)||0}"></div><div class="field"><label>📦 تكلفة المنتج</label><input id="gmECost" type="number" value="${Number(p.cost)||0}"></div><div class="field"><label>📊 المخزون</label><input id="gmEStock" type="number" value="${Number(p.stock)||0}"></div><div class="field"><label>🔢 الحد الأقصى</label><input id="gmEMax" type="number" value="${Number(p.maxQty)||99}"></div><div class="field" style="grid-column:1/-1"><label>📝 الوصف</label><textarea id="gmEDesc">${String(p.desc||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div><div class="field" style="grid-column:1/-1"><label>📌 أقسام ظهور المنتج</label><div id="gmESections" class="gmSectionChecks"></div></div><div class="field" style="grid-column:1/-1"><label>🌱 العناية <span style="font-size:9px;color:#718078">قابلة للتعديل</span></label><textarea id="gmECare" style="min-height:130px">${String(careText).replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div><div class="field" style="grid-column:1/-1"><div class="uploadBox"><b>📷 تغيير الصورة</b><input id="gmEImage" type="file" accept="image/*"><img id="gmEPreview" class="previewImg" style="display:${p.image?'block':'none'};max-height:160px;object-fit:contain" src="${escapeAttr(p.image||'')}"></div></div></div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn dark" id="gmEditSave">💾 حفظ التعديلات</button><button class="mini" id="gmEditCancel2">إلغاء</button></div></div>`;
+ document.body.appendChild(modal);renderSectionChecks('gmESections',selected);
+ const close=()=>modal.remove();document.getElementById('gmEditCancel').onclick=close;document.getElementById('gmEditCancel2').onclick=close;
+ document.getElementById('gmEImage').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const im=document.getElementById('gmEPreview');im.src=ev.target.result;im.style.display='block'};r.readAsDataURL(f)};
+ document.getElementById('gmEditSave').onclick=async()=>{
+   const sections=readSectionChecks('gmESections');let care={};try{care=JSON.parse(document.getElementById('gmECare').value||'{}')}catch(_){care={text:document.getElementById('gmECare').value.trim()}}
+   care._sections=sections;
+   const payload={name:document.getElementById('gmEName').value.trim()||p.name,cat:document.getElementById('gmECat').value,price:Number(document.getElementById('gmEPrice').value)||0,old:Number(document.getElementById('gmEOld').value)||0,wholesale:Number(document.getElementById('gmEWholesale').value)||0,cost:Number(document.getElementById('gmECost').value)||0,stock:Math.max(0,Number(document.getElementById('gmEStock').value)||0),maxQty:Math.max(1,Number(document.getElementById('gmEMax').value)||99),desc:document.getElementById('gmEDesc').value.trim(),care,sections,image:p.image||''};
+   const f=document.getElementById('gmEImage').files?.[0];const finish=async image=>{if(image)payload.image=image;if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/products/'+encodeURIComponent(id),{method:'PUT',body:JSON.stringify({...localProductPayload({...p,...payload}),categorySlug:payload.cat,sections})});if(!r)return;await gmLoadStore()}else{Object.assign(p,{name:payload.name,cat:payload.cat,price:payload.price,old:payload.old,wholesale:payload.wholesale,cost:payload.cost,stock:payload.stock,maxQty:payload.maxQty,desc:payload.desc,care,sections,image:payload.image});localStorage.gmProductsV2=JSON.stringify(products)}close();renderSectionHub();filterProducts();renderAdmin();toast('تم حفظ التعديلات ✓')};if(f){const r=new FileReader();r.onload=e=>finish(e.target.result);r.readAsDataURL(f)}else finish('');
+ };
+}
+function renderAdmin(){const box=document.getElementById('adminProducts');if(!box)return;box.innerHTML=products.map(p=>`<div class="adminItem"><div><b>${escapeHtml(p.name)}</b><div style="font-size:9px;color:#718078">بيع ${Number(p.price)||0} ج • مخزون ${Number(p.stock)||0} • الأقسام: ${getSections(p).map(sectionLabel).join('، ')||'غير محدد'}</div></div><div style="display:flex;gap:5px"><button class="mini" onclick="editProduct('${String(p.id)}')">تعديل</button><button class="mini danger" onclick="deleteProduct('${String(p.id)}')">حذف</button></div></div>`).join('')||'<div class="empty">لا توجد منتجات.</div>';}
+
+/* AI plant selector + real API/local fallback */
+function refreshAiPlantSelect(){const s=document.getElementById('aiSelect');if(!s)return;s.innerHTML='<option value="">أو اختر نباتًا</option>'+products.filter(p=>p.cat==='plants'||getSections(p).includes('plants')).map(p=>`<option value="${escapeAttr(p.name)}">${escapeHtml(p.name)}</option>`).join('')}
+async function generateCare(){
+ const select=document.getElementById('aiSelect'),input=document.getElementById('aiName'),box=document.getElementById('care');const name=(input?.value||select?.value||'').trim();if(!name){toast('اكتب اسم النبات أو اختاره أولًا 🌿');return}
+ if(select?.value&&!input?.value) input.value=select.value; box.style.display='block';box.innerHTML='<div class="empty">🤖 جاري تجهيز خطة العناية...</div>';
+ try{const product=products.find(p=>String(p.name)===String(name));const r=await gmFetch('/ai/care',{method:'POST',body:JSON.stringify({name,product})});if(r?.result){box.innerHTML='<div style="white-space:pre-line;line-height:2">'+escapeHtml(r.result)+'</div>';return}}catch(e){console.warn(e)}
+ const key=Object.keys(careDB).find(k=>name.includes(k))||'عام',c=careDB[key];box.innerHTML=`<div style="line-height:2"><b>🌿 خطة العناية بـ ${escapeHtml(name)}</b><br>☀️ الإضاءة: ${escapeHtml(c.light)}<br>💧 الري: ${escapeHtml(c.water)}<br>🌱 التربة: ${escapeHtml(c.soil)}<br>🧪 التسميد: ${escapeHtml(c.feed)}<br>💦 الرطوبة: ${escapeHtml(c.humidity)}<br>⚠️ تجنب: ${escapeHtml(c.mistakes)}</div>`;
+}
+
+/* Production store loader with section metadata */
+async function gmLoadStore(){
+ try{
+  window.GM_SERVER_STORE=await gmFetch('/store');
+  const cats=window.GM_SERVER_STORE?.categories||[],byId=new Map(cats.map(c=>[String(c.id),c]));
+  const oldById=new Map((products||[]).map(p=>[String(p.id),p]));
+  products=(window.GM_SERVER_STORE?.products||[]).map(p=>{
+   const oldLocal=oldById.get(String(p.id))||{},cat=byId.get(String(p.category_id));let care=p.care_json||{};try{care=typeof care==='string'?JSON.parse(care||'{}'):care}catch(_){care={}}
+   const sections=Array.isArray(care._sections)?care._sections:[];delete care._sections;
+   const obj={...p,id:String(p.id),cat:cat?.slug||oldLocal.cat||'plants',desc:p.description||'',image:p.image_url||'',old:Number(p.old_price||p.oldPrice||p.price||0),price:Number(p.price||0),stock:Number(p.stock||0),maxQty:Number(p.max_qty||p.maxQty||99),wholesale:Number(p.wholesale_price||oldLocal.wholesale||0),cost:Number(p.cost_price||oldLocal.cost||0),care,sections,stockManaged:true};return obj;
+  });
+  products.forEach(p=>{if(!p.sections?.length)withSections(p,getSections(p))});
+  localStorage.gmProductsV2=JSON.stringify(products);
+  if(window.GM_SERVER_STORE.settings?.magazineMusic&&typeof window.GM_SET_MAGAZINE_MUSIC==='function')window.GM_SET_MAGAZINE_MUSIC(window.GM_SERVER_STORE.settings.magazineMusic);
+  if(typeof renderSectionHub==='function')renderSectionHub();refreshAiPlantSelect();filterProducts();renderAdmin();updateDashboard?.();
+  applySettings?.();fillSettings?.();
+ }catch(e){console.warn('Server store unavailable',e);renderSectionHub();refreshAiPlantSelect();filterProducts()}
+}
+
+/* Music admin */
+async function saveMusicSettings(){
+ const payload={enabled:document.getElementById('musicEnabled')?.checked!==false,url:(document.getElementById('musicUrl')?.value||'').trim(),volume:Number(document.getElementById('musicVolume')?.value||.35),autoplay:document.getElementById('musicAutoplay')?.checked!==false,loop:document.getElementById('musicLoop')?.checked!==false};
+ if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/magazine-music',{method:'PUT',body:JSON.stringify(payload)});if(!r)return;if(window.GM_SET_MAGAZINE_MUSIC)window.GM_SET_MAGAZINE_MUSIC(r.magazineMusic)}
+ localStorage.setItem('gmMagazineMusicV1',JSON.stringify(payload));toast('تم حفظ إعدادات الموسيقى 🎵');
+}
+function fillMusicSettings(cfg){const c=cfg||JSON.parse(localStorage.getItem('gmMagazineMusicV1')||'null')||{enabled:true,url:'/default-music.mp3',volume:.35,autoplay:true,loop:true};const set=(id,v)=>{const e=document.getElementById(id);if(e)e[v!==undefined&&e.type==='checkbox'?'checked':'value']=v};set('musicUrl',c.url||'');set('musicVolume',Number(c.volume??.35));set('musicEnabled',c.enabled!==false);set('musicAutoplay',c.autoplay!==false);set('musicLoop',c.loop!==false)}
+
+/* Welcome gate: spoken greeting + music. Mobile browsers may require a user gesture for guaranteed audio. */
+function welcomeSpeechCfg(){return {enabled:true,text:'Welcome to Green Moon, where every plant brings life to your space.',lang:'en-US',rate:.95,repeat:true,...(settings?.welcomeSpeech||window.GM_SERVER_STORE?.settings?.welcomeSpeech||{})}}
+function fillWelcomeSettings(cfg){const c=cfg||welcomeSpeechCfg();const set=(id,v)=>{const e=document.getElementById(id);if(!e)return;if(e.type==='checkbox')e.checked=v;else e.value=v};set('welcomeSpeechText',c.text||'Welcome to Green Moon, where every plant brings life to your space.');set('welcomeSpeechLang',c.lang||'en-US');set('welcomeSpeechRate',Number(c.rate||.95));set('welcomeSpeechEnabled',c.enabled!==false);set('welcomeSpeechRepeat',c.repeat!==false)}
+function speakWelcome(){
+ const c=welcomeSpeechCfg();if(c.enabled===false||!('speechSynthesis' in window))return false;
+ try{window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(c.text);u.lang=c.lang||'en-US';u.rate=Math.max(.75,Math.min(1.25,Number(c.rate)||.95));u.pitch=1.02;const voices=window.speechSynthesis.getVoices();const exact=voices.find(v=>v.lang?.toLowerCase()===(u.lang||'en-us').toLowerCase());const english=voices.find(v=>/^en/i.test(v.lang||''));if(exact)u.voice=exact;else if(english)u.voice=english;const status=document.getElementById('gmWelcomeVoiceStatus');if(status){status.textContent='🔊 '+(c.lang?.startsWith('ar')?'جاري تشغيل رسالة الترحيب':'Playing welcome message…')}u.onend=()=>{if(status)status.textContent='✓ Welcome to Green Moon'};window.speechSynthesis.speak(u);return true}catch(_){return false}
+}
+function initWelcomeMusic(){
+ const gate=document.getElementById('gmWelcome'),enter=document.getElementById('gmWelcomeEnter'),audio=document.getElementById('gmMagazineAudio');if(!gate||!enter||!audio)return;
+ const cfg={enabled:true,url:'/default-music.mp3',volume:.35,autoplay:true,loop:true,...(window.GM_SERVER_STORE?.settings?.magazineMusic||{})};
+ audio.loop=cfg.loop!==false;audio.volume=Math.max(0,Math.min(1,Number(cfg.volume)||.35));if(cfg.url)audio.src=cfg.url;
+ const welcome=welcomeSpeechCfg();
+ document.getElementById('gmWelcomeTitle').textContent='Welcome to Green Moon';
+ document.getElementById('gmWelcomeText').textContent=welcome.text||'Your green space starts here.';
+ const enterNow=async()=>{sessionStorage.setItem('gmWelcomeSeenV1','1');gate.classList.add('hide');if(welcome.enabled!==false)speakWelcome();if(cfg.enabled!==false&&cfg.autoplay!==false){try{await audio.play()}catch(_){document.getElementById('gmMusicFallback')?.style.setProperty('display','block')}}};
+ enter.onclick=enterNow;
+ // Give speech a best-effort automatic start; if the browser blocks it, the Enter button retries it.
+ if(welcome.enabled!==false && welcome.repeat!==false){setTimeout(()=>speakWelcome(),350)}
+}
+
+/* Admin route: no public gear, admin lives at /admin */
+function initAdminRoute(){if(location.pathname==='/admin'||location.pathname==='/admin/'){document.body.classList.add('admin-route');document.getElementById('admin')?.classList.add('show');renderAdmin();adminTab('products',document.querySelector('#admin .tab'))}}
+
+window.addEventListener('DOMContentLoaded',()=>{
+ try{renderSectionHub();renderSectionChecks('pSections',[]);refreshAiPlantSelect();filterProducts();initAdminRoute();initWelcomeMusic();}catch(e){console.error('GM enhancement init',e)}
+});
+</script>
+<style>
+.gmSectionChecks{margin-top:6px}.gmWelcome{position:fixed;inset:0;z-index:20000;background:linear-gradient(145deg,#052c1e,#0b5b3b);display:grid;place-items:center;padding:22px;transition:.35s}.gmWelcome.hide{opacity:0;pointer-events:none;visibility:hidden}.gmWelcomeCard{width:min(480px,100%);text-align:center;color:#fff;padding:38px 24px;border:1px solid #ffffff22;border-radius:30px;background:#ffffff0d;box-shadow:0 25px 80px #0004;backdrop-filter:blur(10px)}.gmWelcomeLeaf{font-size:48px}.gmWelcomeEyebrow{font-size:11px;letter-spacing:4px;font-weight:900;color:#8fe0b0;margin-top:8px}.gmWelcomeCard h1{font-size:32px;margin:12px 0 7px}.gmWelcomeCard p{color:#d3e9dc;margin:0 0 24px}.gmWelcomeCard button{border:0;border-radius:14px;background:#e0b64f;color:#173b29;padding:14px 22px;font-weight:1000;font-size:14px;cursor:pointer}.gmWelcomeCard small{display:block;margin-top:12px;color:#a9cdb9;font-size:9px}.gmWelcomeVoiceStatus{display:inline-block;margin:0 auto 16px;padding:8px 12px;border-radius:999px;background:#ffffff12;border:1px solid #ffffff18;color:#bfe4ce;font-size:10px;font-weight:800}
+</style>
+
 </body></html>
