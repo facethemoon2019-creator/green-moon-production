@@ -1,31 +1,39 @@
-# Green Moon — Production One-Shot
+# Green Moon — Production Full-Stack (Verified One-Shot)
 
-نسخة إنتاجية موحدة لمتجر Green Moon.
+## Included
+- Cloudflare Worker API + D1 database.
+- Customer storefront with product sections and fast static assets.
+- Product CRUD: add, edit, delete, price, stock, category and section assignment.
+- Server-side order recording and stock validation.
+- AI plant-care, plant-doctor and AI space recommendations through OpenAI Responses API.
+- Local fallbacks where practical if AI is unavailable.
+- Scratch card with touch/pointer scratching and one-time browser reward state.
+- Welcome screen with English text + browser voice, then music from the same user gesture when allowed.
+- Admin-controlled music URL, volume, enable/disable, autoplay-after-welcome and loop.
+- Customer-facing settings/gear removed; admin is available at `/admin`.
+- Static music asset included at `public/default-music.mp3`.
 
-## تم إصلاحه في هذه النسخة
-- تعديل وحذف المنتجات من قاعدة بيانات Cloudflare D1، وليس LocalStorage فقط.
-- إضافة المنتجات مع حفظها في D1.
-- إخفاء ترس لوحة التحكم عن العملاء تمامًا.
-- لوحة الإدارة من `/admin` فقط.
-- تقسيم المنتجات إلى أقسام: العروض، الأكثر مبيعًا، الأكثر توفيرًا، الأكثر طلبًا، وصل حديثًا، اختيارات Green Moon، نباتات الزينة، الفازات والإكسسوارات.
-- اختيار أكثر من قسم لكل منتج من لوحة الإدارة.
-- مساعد العناية بالنبات واختيار النباتات من المنتجات المضافة.
-- شاشة ترحيب إنجليزية كتابة + صوت عبر Speech Synthesis.
-- موسيقى الموقع مع ملف افتراضي `public/default-music.mp3` وإعدادات تحكم من لوحة الإدارة.
-- الخربشة تكشف الجائزة ثم تسجلها تلقائيًا في الفاتورة وتمنع إعادة استخدامها حتى يتم تصفير التجربة من الإدارة.
-- تحميل صور المنتجات lazy loading لتقليل وقت الفتح.
+## Cloudflare configuration
+1. Bind the D1 database `green-moon-db` in `wrangler.jsonc`.
+2. Apply `001_init.sql` with `npm run db:init`.
+3. Create Cloudflare Worker secrets:
+   - `ADMIN_TOKEN`
+   - `OPENAI_API_KEY`
+4. Deploy with `npm run deploy`.
 
-## النشر
-1. ارفع محتويات هذا المشروع إلى مستودع GitHub المرتبط بـ Cloudflare Worker `green-moon-production` واستبدل الملفات القديمة.
-2. تأكد أن `public/default-music.mp3` موجود.
-3. Cloudflare سيبني تلقائيًا من فرع `main`.
-4. افتح الموقع من رابط Worker.
-5. لوحة الإدارة: `/admin`
-6. عند أول عملية حفظ إدارية، اكتب قيمة Secret `ADMIN_TOKEN` الموجودة في Cloudflare.
-7. لا تضع `OPENAI_API_KEY` أو `ADMIN_TOKEN` داخل GitHub أو أي ملف عام.
+Cloudflare Workers serves files from `public/` according to the Wrangler `assets.directory` configuration. Static assets are cached by Cloudflare. citeturn0search1turn0search2
 
-## Cloudflare secrets
-- `ADMIN_TOKEN`
-- `OPENAI_API_KEY`
+## Important security note
+Never put an OpenAI API key in browser JavaScript, HTML, GitHub source, or a mobile app. Keep it as a server-side secret. citeturn0search9
 
-المفاتيح لا توجد داخل هذا المشروع.
+The AI uses `gpt-5.6-luna` through `/v1/responses`, which supports text and image input. citeturn1search0turn1search2
+
+## Browser audio note
+Mobile browsers can block autoplay with sound. The welcome button is intentionally the user gesture that starts speech and music; a visible music control remains available as a fallback.
+
+## Verification performed on this package
+- JavaScript syntax checked for every inline script.
+- Worker TypeScript checked against Cloudflare binding stubs.
+- `index.html` and `public/index.html` synchronized.
+- Music asset exists in both required locations and matches by SHA-256.
+- No OpenAI/API secret was found in the project files.

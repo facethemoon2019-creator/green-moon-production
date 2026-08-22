@@ -1,3 +1,4 @@
+/// <reference types="@cloudflare/workers-types" />
 
 export interface Env {
   DB: D1Database;
@@ -47,7 +48,7 @@ async function openAI(env:Env, prompt:string, imageData?:string) {
       "content-type":"application/json"
     },
     body:JSON.stringify({
-      model:"gpt-5",
+      model:"gpt-5.6-luna",
       input:[{role:"user",content}],
       max_output_tokens:1800
     })
@@ -66,6 +67,11 @@ export default {
   if(p==="/api/health") return json({ok:true,service:"green-moon"});
 
   if(p==="/api/store" && method==="GET"){
+    await env.DB.batch([
+      env.DB.prepare("INSERT OR IGNORE INTO categories(name,slug,icon,sort_order) VALUES(?,?,?,?)").bind("نباتات الزينة","plants","🪴",10),
+      env.DB.prepare("INSERT OR IGNORE INTO categories(name,slug,icon,sort_order) VALUES(?,?,?,?)").bind("العروض","offers","🔥",20),
+      env.DB.prepare("INSERT OR IGNORE INTO categories(name,slug,icon,sort_order) VALUES(?,?,?,?)").bind("الفازات والإكسسوارات","vases","🏺",30)
+    ]);
     const settings=await env.DB.prepare("SELECT data FROM settings WHERE id=1").first<any>();
     const cats=await env.DB.prepare("SELECT id,name,slug,icon,image_url,sort_order FROM categories WHERE active=1 ORDER BY sort_order,id").all();
     const ps=await env.DB.prepare("SELECT id,category_id,name,slug,description,image_url,price,old_price,stock,max_qty,care_json FROM products WHERE active=1 ORDER BY id DESC").all();
@@ -90,7 +96,7 @@ export default {
     const ids=b.items.map((x:any)=>Number(x.productId)).filter(Boolean);
     const q=ids.map(()=>"?").join(",");
     const rows=await env.DB.prepare(`SELECT id,name,price,stock,max_qty FROM products WHERE active=1 AND id IN (${q})`).bind(...ids).all<any>();
-    const byId=new Map(rows.results.map((x:any)=>[Number(x.id),x]));
+    const byId = new Map<number, any>(rows.results.map((x:any)=>[Number(x.id),x]));
 
     let subtotal=0;
     const safe:any[]=[];
@@ -105,7 +111,8 @@ export default {
 
     const delivery=subtotal>=700?0:50;
     const discount=Math.max(0,Number(b.discount)||0);
-    const total=Math.max(0,subtotal+delivery-discount);
+    const adjustment=Number(b.adjustment)||0;
+    const total=Math.max(0,subtotal+delivery-discount+adjustment);
     const number="GM-"+Date.now().toString(36).toUpperCase();
 
     await env.DB.prepare(`
@@ -144,7 +151,7 @@ export default {
     const products=await env.DB.prepare("SELECT id,name,description,price,image_url,care_json FROM products WHERE active=1").all<any>();
     const prompt=`حلل صورة المكان بدقة واقترح من هذه المنتجات أفضل 3 نباتات. لا تطلب من العميل تحديد نوع المكان أو الإضاءة. استنتج من الصورة: الإضاءة، المساحة، الألوان، الأثاث، الأرضية، المنظور، المكان المتاح، والارتفاع/العرض التقريبي. أعد JSON فقط بالشكل:
 {"analysis":{"light":"","space":"","estimated_width_cm":0,"estimated_height_cm":0},"recommendations":[{"product_id":0,"match":0,"reason":"","estimated_height_cm":0,"estimated_width_cm":0}]}
-المنتجات: ${JSON.stringify(products.map((x:any)=>({id:x.id,name:x.name,description:x.description,price:x.price})))}`
+المنتجات: ${JSON.stringify(products.results.map((x:any)=>({id:x.id,name:x.name,description:x.description,price:x.price})))}`
     const answer=await openAI(env,prompt,b.image);
     if(!answer) return json({error:"AI غير مضبوط بعد. أضف OPENAI_API_KEY كـSecret."},503);
     return json({ok:true,result:answer});
@@ -189,12 +196,16 @@ export default {
 
   if(p==="/api/admin/settings" && method==="PUT"){
     if(!adminOK(request,env)) return json({error:"Unauthorized"},401);
-    const body=await request.json();
+    const body:any=await request.json();
+    const current=await env.DB.prepare("SELECT data FROM settings WHERE id=1").first<any>();
+    let existing:any={};
+    try{ existing=current?JSON.parse(current.data||"{}"):{}; }catch(_){ existing={}; }
+    const merged={...existing,...(body&&typeof body==="object"?body:{})};
     await env.DB.prepare(`
       INSERT INTO settings(id,data) VALUES(1,?)
       ON CONFLICT(id) DO UPDATE SET data=excluded.data,updated_at=CURRENT_TIMESTAMP
-    `).bind(JSON.stringify(body)).run();
-    return json({ok:true});
+    `).bind(JSON.stringify(merged)).run();
+    return json({ok:true,settings:merged});
   }
 
 

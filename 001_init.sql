@@ -115,3 +115,11 @@ CREATE TABLE IF NOT EXISTS magazine_music (
  enabled INTEGER NOT NULL DEFAULT 1,
  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT OR IGNORE INTO categories(name,slug,icon,sort_order) VALUES
+('نباتات الزينة','plants','🪴',10),
+('العروض','offers','🔥',20),
+('الفازات والإكسسوارات','vases','🏺',30);
+
+INSERT OR IGNORE INTO settings(id,data) VALUES
+(1,'{"name":"Green Moon Plants & Flowers","msg":"أهلاً بيك في Green Moon 🌿","magazineMusic":{"enabled":true,"url":"/default-music.mp3","volume":0.35,"autoplay":true,"loop":true}}');

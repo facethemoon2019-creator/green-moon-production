@@ -1,0 +1,22 @@
+GREEN MOON — VERIFIED ONE SHOT
+
+This package is the reviewed production version.
+
+Includes:
+- Product sections: Offers, Best Sellers, Best Savings, Most Requested, New, Green Moon Picks, Plants, Vases & Accessories.
+- Section assignment per product.
+- Customer-facing admin gear hidden; admin is available at /admin.
+- Add/edit/delete products against Cloudflare D1 using ADMIN_TOKEN.
+- Admin settings persist to D1.
+- AI plant selector and AI space analysis use the Worker OpenAI endpoint when configured, with safe local fallback.
+- Welcome screen: English text + browser voice + music start from the same user gesture.
+- Admin-controlled music URL, volume, autoplay-after-welcome, loop and enable/disable.
+- Scratch card works with touch/pointer input and applies its configured adjustment once per browser session state.
+- Production orders are recorded in D1 and stock is refreshed from the database before WhatsApp is opened.
+- Static assets are served from public/ and the music file is included.
+
+REQUIRED SECRETS
+- ADMIN_TOKEN
+- OPENAI_API_KEY
+
+Do not put secrets in GitHub or frontend code.
