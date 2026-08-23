@@ -94,19 +94,19 @@ body.admin-route #admin{display:block!important;margin-top:20px}
 <body>
 <div id="gmWelcome" class="gmWelcome" aria-modal="true" role="dialog">
   <div class="gmWelcomeCard" dir="ltr">
-    <div class="gmWelcomeLeaf">🌿</div>
-    <div class="gmWelcomeEyebrow">GREEN MOON</div>
+    <div class="gmWelcomeLogoWrap"><img src="/green-moon-logo.webp" alt="Green Moon Plants and Flowers" class="gmWelcomeLogo"></div>
+    <div class="gmWelcomeEyebrow">EST. 2017 • PLANTS &amp; FLOWERS</div>
     <h1>Welcome to Green Moon</h1>
     <p>Your green space starts here.</p>
     <button id="gmWelcomeEnter" type="button">Enter Green Moon ✨</button>
-    <small>Tap to enter &amp; start the music</small>
+    <small>Tap once to enter &amp; start the experience</small>
   </div>
 </div>
 <div id="gmMagazineMusic" class="gmMagazineMusic hidden" aria-label="موسيقى المجلة">
   <button id="gmMusicToggle" type="button" aria-label="تشغيل الموسيقى">▶</button>
   <span>🎵 موسيقى المجلة</span>
   <input id="gmMusicVolume" type="range" min="0" max="1" step="0.05" value="0.35" aria-label="مستوى الصوت">
-  <audio id="gmMagazineAudio" preload="auto" loop playsinline><source src="/default-music.mp3" type="audio/mpeg"></audio>
+  <audio id="gmStartupAudio" preload="auto" playsinline><source src="/green-moon-startup.mp3" type="audio/mpeg"></audio><audio id="gmMagazineAudio" preload="none" loop playsinline><source src="/default-music.mp3" type="audio/mpeg"></audio>
 </div>
 <div id="gmMusicFallback" class="gmMusicFallback">
   🎵 موسيقى المجلة جاهزة
@@ -121,7 +121,7 @@ body.admin-route #admin{display:block!important;margin-top:20px}
 </div></nav>
 
 <main class="wrap">
-<section class="hero" id="hero"><div class="heroGlow"></div><img id="coverImage" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34;z-index:1"><div class="heroText"><span class="pill">✦ PREMIUM PLANT EXPERIENCE</span><h1>بيتك يستاهل<br><em>مساحة خضراء.</em></h1><p>مش مجرد نباتات. اختيارات مدروسة، عروض ذكية، إرشادات عناية خطوة بخطوة، وتجربة شراء مصممة عشان تحب كل تفصيلة.</p><div class="cta"><a class="btn gold" href="#products">اكتشف المتجر ✨</a><a class="btn ghost" href="#ai">اسأل مساعد النباتات 🤖</a></div><div class="metrics"><div class="metric"><b>🌱 +100</b><span>اختيار نباتي</span></div><div class="metric"><b>🔎 فحص</b><span>قبل التسليم</span></div><div class="metric"><b>💚 دعم</b><span>بعد الشراء</span></div></div></div>
+<section class="hero" id="hero"><div class="heroGlow"></div><img id="coverImage" src="/green-moon-luxury-cover.webp" alt="Green Moon luxury cover" decoding="async" fetchpriority="high" style="display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.52;z-index:1"><div class="heroText"><span class="pill">✦ PREMIUM PLANT EXPERIENCE</span><h1>بيتك يستاهل<br><em>مساحة خضراء.</em></h1><p>مش مجرد نباتات. اختيارات مدروسة، عروض ذكية، إرشادات عناية خطوة بخطوة، وتجربة شراء مصممة عشان تحب كل تفصيلة.</p><div class="cta"><a class="btn gold" href="#products">اكتشف المتجر ✨</a><a class="btn ghost" href="#ai">اسأل مساعد النباتات 🤖</a></div><div class="metrics"><div class="metric"><b>🌱 +100</b><span>اختيار نباتي</span></div><div class="metric"><b>🔎 فحص</b><span>قبل التسليم</span></div><div class="metric"><b>💚 دعم</b><span>بعد الشراء</span></div></div></div>
 <svg class="heroPlant" viewBox="0 0 600 500"><path d="M330 430C320 340 340 230 360 120" stroke="#b8d9c3" stroke-width="10" fill="none" stroke-linecap="round"/><path class="l" d="M350 245C250 230 220 165 235 95c84 8 130 62 115 150Z"/><path class="l2" d="M352 330C430 315 470 270 470 205c-75 4-116 44-118 125Z"/><path class="l2" d="M365 170C425 155 456 116 450 64c-62 3-94 36-85 106Z"/><path class="pot" d="M250 400h190l-25 95H275l-25-95Z"/><ellipse cx="345" cy="400" rx="95" ry="20" fill="#b9874b"/><ellipse cx="345" cy="398" rx="75" ry="13" fill="#6b4829"/></svg></section>
 
 <section class="section categoryHub wrap" id="catalogSections">
@@ -706,7 +706,17 @@ async function saveSettings(){
  if(window.GM_PRODUCTION){const r=await gmAdminFetch('/admin/settings',{method:'PUT',body:JSON.stringify(settings)});if(!r)return;settings={...settings,...(r.settings||{})};localStorage.gmSettingsV2=JSON.stringify(settings);applySettings();}
  toast('تم حفظ إعدادات المتجر ✓')
 }
-function applySettings(){document.title=settings.name||'Green Moon';document.getElementById('footName')&&(document.getElementById('footName').textContent=settings.name);document.getElementById('footWa')&&(document.getElementById('footWa').textContent=settings.wa);document.getElementById('footAddress')&&(document.getElementById('footAddress').textContent=settings.address);['sName','sWa','sAddress','sMsg','sAbout','sOwnerName','sOwnerBio','sVision'].forEach((id,i)=>{const e=document.getElementById(id);if(!e)return;const k=['name','wa','address','msg','about','ownerName','ownerBio','vision'][i];e.value=settings[k]||''})}
+function applySettings(){
+ document.title=settings.name||'Green Moon';
+ document.getElementById('brandName')&&(document.getElementById('brandName').textContent=settings.name||'GREEN MOON');
+ document.getElementById('footName')&&(document.getElementById('footName').textContent=settings.name||'Green Moon');
+ document.getElementById('footWa')&&(document.getElementById('footWa').textContent=settings.wa||'');
+ document.getElementById('footAddress')&&(document.getElementById('footAddress').textContent=settings.address||'');
+ const logo=document.getElementById('logoImage'); if(logo){logo.src=settings.logo||'/green-moon-logo.webp';logo.style.display='block'}
+ const cover=document.getElementById('coverImage'); if(cover){cover.src=settings.cover||'/green-moon-luxury-cover.webp';cover.style.display='block'}
+ const owner=document.getElementById('ownerPhoto'); if(owner&&settings.ownerPhoto){owner.src=settings.ownerPhoto;owner.style.display='block';document.getElementById('ownerPlaceholder')?.style.setProperty('display','none')}
+ ['sName','sWa','sAddress','sMsg','sAbout','sOwnerName','sOwnerBio','sVision'].forEach((id,i)=>{const e=document.getElementById(id);if(!e)return;const k=['name','wa','address','msg','about','ownerName','ownerBio','vision'][i];e.value=settings[k]||''})
+}
 function saveTheme(){theme={main:tMain.value,gold:tGold.value,bg:tBg.value};localStorage.gmThemeV2=JSON.stringify(theme);applyTheme();toast('تم تطبيق الثيم 🎨')}
 function applyTheme(){document.documentElement.style.setProperty('--g',theme.main);document.documentElement.style.setProperty('--g2',theme.gold);document.documentElement.style.setProperty('--bg',theme.bg)}
 function saveOffer(){offer={title:oTitle.value,price:Number(oPrice.value)||0,old:Number(oOld.value)||0,minutes:Number(oMinutes.value)||15};localStorage.gmOfferV2=JSON.stringify(offer);toast('تم حفظ العرض ⚡')}
@@ -914,7 +924,7 @@ function updateCartBadge(){
 </script>
 <script>document.addEventListener("DOMContentLoaded",()=>setTimeout(updateCartBadge,20));</script>
 <script>
-window.GM_PRODUCTION = true;
+window.GM_PRODUCTION = location.protocol === "http:" || location.protocol === "https:";
 window.GM_API = "/api";
 window.GM_SERVER_STORE = null;
 
@@ -1182,30 +1192,21 @@ function fillMusicSettings(cfg){const c=cfg||JSON.parse(localStorage.getItem('gm
 
 /* Welcome gate: mobile browsers require a user gesture for guaranteed audio. */
 function initWelcomeMusic(){
- const gate=document.getElementById('gmWelcome'),enter=document.getElementById('gmWelcomeEnter'),audio=document.getElementById('gmMagazineAudio');if(!gate||!enter||!audio)return;
- const already=sessionStorage.getItem('gmWelcomeSeenV1')==='1';
+ const gate=document.getElementById('gmWelcome'),enter=document.getElementById('gmWelcomeEnter'),audio=document.getElementById('gmMagazineAudio'),startup=document.getElementById('gmStartupAudio');
+ if(!gate||!enter||!audio||!startup)return;
  const serverCfg=window.GM_SERVER_STORE?.settings?.magazineMusic;
  let cfg={enabled:true,url:'/default-music.mp3',volume:.35,autoplay:true,loop:true,...(serverCfg||{})};
  audio.preload='auto';audio.loop=cfg.loop!==false;audio.volume=Math.max(0,Math.min(1,Number(cfg.volume)||.35));audio.src=cfg.url||'/default-music.mp3';
- const speakWelcome=()=>{
-   try{
-     if(!('speechSynthesis' in window))return;
-     window.speechSynthesis.cancel();
-     const u=new SpeechSynthesisUtterance('Welcome to Green Moon. Your green space starts here.');
-     u.lang='en-US';u.rate=.92;u.pitch=1.02;u.volume=1;
-     window.speechSynthesis.speak(u);
-   }catch(_){ }
- };
+ startup.preload='auto';startup.volume=.9;
  window.addEventListener('gm:music-config',e=>{cfg={...cfg,...(e.detail||{})};audio.loop=cfg.loop!==false;audio.volume=Math.max(0,Math.min(1,Number(cfg.volume)||.35));audio.src=cfg.url||'/default-music.mp3';});
- const playMusic=async()=>{
-   if(cfg.enabled===false||cfg.autoplay===false)return false;
-   try{audio.currentTime=audio.currentTime||0;await audio.play();document.getElementById('gmMusicFallback')?.style.setProperty('display','none');return true}
-   catch(_){document.getElementById('gmMusicFallback')?.style.setProperty('display','block');return false}
+ const playExperience=async()=>{
+   try{startup.currentTime=0;await startup.play()}catch(_){document.getElementById('gmMusicFallback')?.style.setProperty('display','block')}
+   if(cfg.enabled!==false&&cfg.autoplay!==false){try{audio.currentTime=0;await audio.play();document.getElementById('gmMusicFallback')?.style.setProperty('display','none')}catch(_){document.getElementById('gmMusicFallback')?.style.setProperty('display','block')}}
  };
- const enterNow=async()=>{sessionStorage.setItem('gmWelcomeSeenV1','1');speakWelcome();gate.classList.add('hide');await playMusic();};
+ const enterNow=async()=>{gate.classList.add('hide');await playExperience();};
  enter.onclick=enterNow;
- if(already){gate.classList.add('hide');setTimeout(playMusic,120)}
- else{gate.classList.remove('hide');setTimeout(()=>{playMusic().catch?.(()=>{})},350)}
+ // Always use the welcome gate on a fresh page load so mobile browsers receive a real user gesture.
+ gate.classList.remove('hide');
  window.GM_WELCOME_PLAY=enterNow;
 }
 
@@ -1217,7 +1218,8 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <style>
-.gmSectionChecks{margin-top:6px}.gmWelcome{position:fixed;inset:0;z-index:20000;background:linear-gradient(145deg,#052c1e,#0b5b3b);display:grid;place-items:center;padding:22px;transition:.35s}.gmWelcome.hide{opacity:0;pointer-events:none;visibility:hidden}.gmWelcomeCard{width:min(480px,100%);text-align:center;color:#fff;padding:38px 24px;border:1px solid #ffffff22;border-radius:30px;background:#ffffff0d;box-shadow:0 25px 80px #0004;backdrop-filter:blur(10px)}.gmWelcomeLeaf{font-size:48px}.gmWelcomeEyebrow{font-size:11px;letter-spacing:4px;font-weight:900;color:#8fe0b0;margin-top:8px}.gmWelcomeCard h1{font-size:32px;margin:12px 0 7px}.gmWelcomeCard p{color:#d3e9dc;margin:0 0 24px}.gmWelcomeCard button{border:0;border-radius:14px;background:#e0b64f;color:#173b29;padding:14px 22px;font-weight:1000;font-size:14px;cursor:pointer}.gmWelcomeCard small{display:block;margin-top:12px;color:#a9cdb9;font-size:9px}
+.gmSectionChecks{margin-top:6px}.gmWelcome{position:fixed;inset:0;z-index:20000;background:radial-gradient(circle at 50% 25%,#0d6545,#031e15 62%,#02140e);display:grid;place-items:center;padding:22px;transition:.45s}.gmWelcome.hide{opacity:0;pointer-events:none;visibility:hidden}.gmWelcomeCard{width:min(480px,100%);text-align:center;color:#173a2a;padding:30px 24px;border:1px solid #ffffff22;border-radius:30px;background:#fbfaf6;box-shadow:0 25px 80px #0006;backdrop-filter:blur(10px)}.gmWelcomeLogoWrap{width:min(330px,82vw);margin:0 auto 12px;filter:drop-shadow(0 18px 35px #0007)}.gmWelcomeLogo{display:block;width:100%;height:auto;object-fit:contain;border-radius:18px}.gmWelcomeCard h1{letter-spacing:-1px}
+.gmWelcomeLeaf{font-size:48px}.gmWelcomeEyebrow{font-size:11px;letter-spacing:3px;font-weight:900;color:#2f8b5e;margin-top:8px}.gmWelcomeCard h1{font-size:32px;margin:12px 0 7px}.gmWelcomeCard p{color:#66756d;margin:0 0 24px}.gmWelcomeCard button{border:0;border-radius:14px;background:#e0b64f;color:#173b29;padding:14px 22px;font-weight:1000;font-size:14px;cursor:pointer}.gmWelcomeCard small{display:block;margin-top:12px;color:#7a877f;font-size:9px}
 </style>
 
 </body></html>
