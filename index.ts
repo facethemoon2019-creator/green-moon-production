@@ -89,58 +89,108 @@ export default {
   }
 
   if(p==="/api/orders" && method==="POST"){
-    const b:any=await request.json();
-    if(!b.customer?.name || !b.customer?.phone || !Array.isArray(b.items) || !b.items.length)
-      return json({error:"بيانات الطلب غير مكتملة"},400);
+    try{
+      const b:any=await request.json();
+      if(!b.customer?.name || !b.customer?.phone || !Array.isArray(b.items) || !b.items.length)
+        return json({error:"بيانات الطلب غير مكتملة"},400);
 
-    const ids=b.items.map((x:any)=>Number(x.productId)).filter(Boolean);
-    const q=ids.map(()=>"?").join(",");
-    const rows=await env.DB.prepare(`SELECT id,name,price,wholesale_price,cost_price,stock,max_qty FROM products WHERE active=1 AND id IN (${q})`).bind(...ids).all<any>();
-    const byId = new Map<number, any>(rows.results.map((x:any)=>[Number(x.id),x]));
-    const settingsRow=await env.DB.prepare("SELECT data FROM settings WHERE id=1").first<any>();
-    const storeSettings=settingsRow?JSON.parse(settingsRow.data):{};
-    const upsellMargin=Math.max(1,Math.min(100,Number(storeSettings.upsellMargin)||22));
-
-    let subtotal=0;
-    const safe:any[]=[];
-    for(const item of b.items){
-      const pr=byId.get(Number(item.productId));
-      if(!pr) return json({error:"منتج غير متاح"},409);
-      const qty=Math.max(1,Math.min(Number(item.qty)||1,Number(pr.max_qty)||99));
-      if(Number(pr.stock)<qty) return json({error:`المخزون غير كافٍ: ${pr.name}`},409);
-      let unitPrice=Number(pr.price);
-      if(item.smartAddOn){
-        const base=Number(pr.wholesale_price||pr.cost_price||pr.price);
-        let special=Math.round((base*(1+upsellMargin/100))/5)*5;
-        if(pr.price&&special>=pr.price) special=Math.max(base+5,Math.round((Number(pr.price)*0.9)/5)*5);
-        unitPrice=Math.max(1,special);
+      // Production safety: older D1 versions may have been created before the
+      // address fields were added. Make the orders table self-healing so checkout
+      // never fails just because an older schema is still attached.
+      await env.DB.prepare(`CREATE TABLE IF NOT EXISTS orders (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        order_number TEXT NOT NULL UNIQUE,
+        customer_name TEXT NOT NULL,
+        phone TEXT NOT NULL,
+        whatsapp TEXT,
+        governorate TEXT,
+        area TEXT,
+        building TEXT,
+        floor TEXT,
+        apartment TEXT,
+        notes TEXT,
+        subtotal REAL NOT NULL DEFAULT 0,
+        delivery REAL NOT NULL DEFAULT 0,
+        discount REAL NOT NULL DEFAULT 0,
+        total REAL NOT NULL DEFAULT 0,
+        status TEXT NOT NULL DEFAULT 'new',
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+      )`).run();
+      // Add fields used by the current checkout if an older schema is attached.
+      // Duplicate-column errors are intentionally ignored.
+      const missingColumns:any[] = [
+        ["whatsapp","TEXT"],["governorate","TEXT"],["area","TEXT"],["building","TEXT"],
+        ["floor","TEXT"],["apartment","TEXT"],["notes","TEXT"],["delivery","REAL NOT NULL DEFAULT 0"],
+        ["discount","REAL NOT NULL DEFAULT 0"],["total","REAL NOT NULL DEFAULT 0"]
+      ];
+      for(const [name,type] of missingColumns){
+        try{ await env.DB.prepare(`ALTER TABLE orders ADD COLUMN ${name} ${type}`).run(); }catch(_){ /* already exists */ }
       }
-      subtotal+=unitPrice*qty;
-      safe.push({pr,qty,unitPrice});
+      await env.DB.prepare(`CREATE TABLE IF NOT EXISTS order_items (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        order_id INTEGER NOT NULL,
+        product_id INTEGER,
+        name TEXT NOT NULL,
+        qty INTEGER NOT NULL,
+        unit_price REAL NOT NULL
+      )`).run();
+
+      const ids=b.items.map((x:any)=>Number(x.productId)).filter(Boolean);
+      if(!ids.length) return json({error:"السلة لا تحتوي على منتجات صالحة"},400);
+      const q=ids.map(()=>"?").join(",");
+      const rows=await env.DB.prepare(`SELECT id,name,price,wholesale_price,cost_price,stock,max_qty FROM products WHERE active=1 AND id IN (${q})`).bind(...ids).all<any>();
+      const byId = new Map<number, any>(rows.results.map((x:any)=>[Number(x.id),x]));
+      const settingsRow=await env.DB.prepare("SELECT data FROM settings WHERE id=1").first<any>();
+      const storeSettings=settingsRow?JSON.parse(settingsRow.data):{};
+      const upsellMargin=Math.max(1,Math.min(100,Number(storeSettings.upsellMargin)||22));
+
+      let subtotal=0;
+      const safe:any[]=[];
+      for(const item of b.items){
+        const pr=byId.get(Number(item.productId));
+        if(!pr) return json({error:"منتج غير متاح"},409);
+        const qty=Math.max(1,Math.min(Number(item.qty)||1,Number(pr.max_qty)||99));
+        if(Number(pr.stock)<qty) return json({error:`المخزون غير كافٍ: ${pr.name}`},409);
+        let unitPrice=Number(pr.price);
+        if(item.smartAddOn){
+          const base=Number(pr.wholesale_price||pr.cost_price||pr.price);
+          let special=Math.round((base*(1+upsellMargin/100))/5)*5;
+          if(pr.price&&special>=pr.price) special=Math.max(base+5,Math.round((Number(pr.price)*0.9)/5)*5);
+          unitPrice=Math.max(1,special);
+        }
+        subtotal+=unitPrice*qty;
+        safe.push({pr,qty,unitPrice});
+      }
+
+      // Keep checkout pricing consistent with the storefront: free delivery at 700+.
+      const configuredDelivery=Math.max(0,Number(storeSettings.deliveryFee??50));
+      const delivery=subtotal>=700?0:configuredDelivery;
+      const discount=Math.max(0,Number(b.discount)||0);
+      const adjustment=Number(b.adjustment)||0;
+      const total=Math.max(0,subtotal+delivery-discount+adjustment);
+      const number="GM-"+Date.now().toString(36).toUpperCase();
+
+      await env.DB.prepare(`
+        INSERT INTO orders(order_number,customer_name,phone,whatsapp,governorate,area,building,floor,apartment,notes,subtotal,delivery,discount,total)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+      `).bind(number,String(b.customer.name).trim(),String(b.customer.phone).trim(),String(b.customer.whatsapp||"").trim(),
+        String(b.customer.governorate||""),String(b.customer.area||""),String(b.customer.building||""),
+        String(b.customer.floor||""),String(b.customer.apartment||""),String(b.customer.notes||""),
+        subtotal,delivery,discount,total).run();
+
+      const order=await env.DB.prepare("SELECT id FROM orders WHERE order_number=?").bind(number).first<any>();
+      if(!order?.id) throw new Error("تعذر إنشاء رقم الطلب");
+      for(const x of safe){
+        await env.DB.prepare("INSERT INTO order_items(order_id,product_id,name,qty,unit_price) VALUES(?,?,?,?,?)")
+          .bind(order.id,x.pr.id,x.pr.name,x.qty,x.unitPrice).run();
+        await env.DB.prepare("UPDATE products SET stock=stock-?,updated_at=CURRENT_TIMESTAMP WHERE id=?")
+          .bind(x.qty,x.pr.id).run();
+      }
+      return json({ok:true,orderNumber:number,total});
+    }catch(e){
+      console.error("ORDER_CREATE_ERROR",e);
+      return json({error:"تعذر تسجيل الطلب على قاعدة البيانات. حاول مرة أخرى."},500);
     }
-
-    const delivery=Math.max(0,Number(storeSettings.deliveryFee??50));
-    const discount=Math.max(0,Number(b.discount)||0);
-    const adjustment=Number(b.adjustment)||0;
-    const total=Math.max(0,subtotal+delivery-discount+adjustment);
-    const number="GM-"+Date.now().toString(36).toUpperCase();
-
-    await env.DB.prepare(`
-      INSERT INTO orders(order_number,customer_name,phone,whatsapp,governorate,area,building,floor,apartment,notes,subtotal,delivery,discount,total)
-      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-    `).bind(number,b.customer.name,b.customer.phone,b.customer.whatsapp||"",
-      b.customer.governorate||"",b.customer.area||"",b.customer.building||"",
-      b.customer.floor||"",b.customer.apartment||"",b.customer.notes||"",
-      subtotal,delivery,discount,total).run();
-
-    const order=await env.DB.prepare("SELECT id FROM orders WHERE order_number=?").bind(number).first<any>();
-    for(const x of safe){
-      await env.DB.prepare("INSERT INTO order_items(order_id,product_id,name,qty,unit_price) VALUES(?,?,?,?,?)")
-        .bind(order.id,x.pr.id,x.pr.name,x.qty,x.unitPrice).run();
-      await env.DB.prepare("UPDATE products SET stock=stock-?,updated_at=CURRENT_TIMESTAMP WHERE id=?")
-        .bind(x.qty,x.pr.id).run();
-    }
-    return json({ok:true,orderNumber:number,total});
   }
 
   if(p==="/api/ai/care" && method==="POST"){
