@@ -37,3 +37,11 @@ Mobile browsers can block autoplay with sound. The welcome button is intentional
 - `index.html` and `public/index.html` synchronized.
 - Music asset exists in both required locations and matches by SHA-256.
 - No OpenAI/API secret was found in the project files.
+
+
+## Green Moon company profile
+- Customer-facing company profile now supports company overview, history, founded year, mission, vision, values, services, quality/customer care, B2B services, owner bio and address.
+- All company profile fields are editable from Admin → Settings and are stored in D1.
+- Plant care opens in its own product-specific modal instead of the company profile.
+- Checkout smart add-ons are validated server-side and use the configured delivery fee.
+- Delivery is configurable from Admin → Settings and defaults to 50 EGP; there is no automatic free-shipping threshold.

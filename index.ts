@@ -95,8 +95,11 @@ export default {
 
     const ids=b.items.map((x:any)=>Number(x.productId)).filter(Boolean);
     const q=ids.map(()=>"?").join(",");
-    const rows=await env.DB.prepare(`SELECT id,name,price,stock,max_qty FROM products WHERE active=1 AND id IN (${q})`).bind(...ids).all<any>();
+    const rows=await env.DB.prepare(`SELECT id,name,price,wholesale_price,cost_price,stock,max_qty FROM products WHERE active=1 AND id IN (${q})`).bind(...ids).all<any>();
     const byId = new Map<number, any>(rows.results.map((x:any)=>[Number(x.id),x]));
+    const settingsRow=await env.DB.prepare("SELECT data FROM settings WHERE id=1").first<any>();
+    const storeSettings=settingsRow?JSON.parse(settingsRow.data):{};
+    const upsellMargin=Math.max(1,Math.min(100,Number(storeSettings.upsellMargin)||22));
 
     let subtotal=0;
     const safe:any[]=[];
@@ -105,11 +108,18 @@ export default {
       if(!pr) return json({error:"منتج غير متاح"},409);
       const qty=Math.max(1,Math.min(Number(item.qty)||1,Number(pr.max_qty)||99));
       if(Number(pr.stock)<qty) return json({error:`المخزون غير كافٍ: ${pr.name}`},409);
-      subtotal+=Number(pr.price)*qty;
-      safe.push({pr,qty});
+      let unitPrice=Number(pr.price);
+      if(item.smartAddOn){
+        const base=Number(pr.wholesale_price||pr.cost_price||pr.price);
+        let special=Math.round((base*(1+upsellMargin/100))/5)*5;
+        if(pr.price&&special>=pr.price) special=Math.max(base+5,Math.round((Number(pr.price)*0.9)/5)*5);
+        unitPrice=Math.max(1,special);
+      }
+      subtotal+=unitPrice*qty;
+      safe.push({pr,qty,unitPrice});
     }
 
-    const delivery=subtotal>=700?0:50;
+    const delivery=Math.max(0,Number(storeSettings.deliveryFee??50));
     const discount=Math.max(0,Number(b.discount)||0);
     const adjustment=Number(b.adjustment)||0;
     const total=Math.max(0,subtotal+delivery-discount+adjustment);
@@ -126,7 +136,7 @@ export default {
     const order=await env.DB.prepare("SELECT id FROM orders WHERE order_number=?").bind(number).first<any>();
     for(const x of safe){
       await env.DB.prepare("INSERT INTO order_items(order_id,product_id,name,qty,unit_price) VALUES(?,?,?,?,?)")
-        .bind(order.id,x.pr.id,x.pr.name,x.qty,x.pr.price).run();
+        .bind(order.id,x.pr.id,x.pr.name,x.qty,x.unitPrice).run();
       await env.DB.prepare("UPDATE products SET stock=stock-?,updated_at=CURRENT_TIMESTAMP WHERE id=?")
         .bind(x.qty,x.pr.id).run();
     }
