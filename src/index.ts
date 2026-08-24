@@ -56,7 +56,11 @@ async function openAI(env:Env, prompt:string, imageData?:string) {
   return data.output_text || "";
 }
 
-const INDEX_HTML = "<!doctype html>
+const INDEX_HTML = `<!doctype html>
+...
+كل الـHTML الموجود
+...
+`;
 <html lang=\"ar\" dir=\"rtl\">
 <head>
 <meta charset=\"utf-8\">
