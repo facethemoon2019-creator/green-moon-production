@@ -126,6 +126,18 @@ export default {
       for(const [name,type] of missingColumns){
         try{ await env.DB.prepare(`ALTER TABLE orders ADD COLUMN ${name} ${type}`).run(); }catch(_){ /* already exists */ }
       }
+      // Make the product schema compatible with older D1 databases too.
+      const productColumns:any[] = [
+        ["wholesale_price","REAL NOT NULL DEFAULT 0"],
+        ["cost_price","REAL NOT NULL DEFAULT 0"],
+        ["max_qty","INTEGER NOT NULL DEFAULT 99"],
+        ["stock","INTEGER NOT NULL DEFAULT 0"],
+        ["updated_at","TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP"]
+      ];
+      for(const [name,type] of productColumns){
+        try{ await env.DB.prepare(`ALTER TABLE products ADD COLUMN ${name} ${type}`).run(); }catch(_){ /* already exists */ }
+      }
+
       await env.DB.prepare(`CREATE TABLE IF NOT EXISTS order_items (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         order_id INTEGER NOT NULL,
