@@ -344,6 +344,12 @@ export default {
   }
 
   if(p.startsWith("/api/")) return json({error:"Not found"},404);
-  return env.ASSETS.fetch(request);
+  const asset = await env.ASSETS.fetch(request);
+  if(method==="GET" && (p==="/" || p.endsWith(".html"))){
+    const headers = new Headers(asset.headers);
+    headers.set("cache-control","no-store, no-cache, must-revalidate");
+    return new Response(asset.body,{status:asset.status,statusText:asset.statusText,headers});
+  }
+  return asset;
  }
 };
