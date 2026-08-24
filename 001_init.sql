@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS orders (
  building TEXT,
  floor TEXT,
  apartment TEXT,
+ address_line2 TEXT,
  notes TEXT,
  subtotal REAL NOT NULL,
  delivery REAL NOT NULL DEFAULT 0,

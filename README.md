@@ -45,3 +45,7 @@ Mobile browsers can block autoplay with sound. The welcome button is intentional
 - Plant care opens in its own product-specific modal instead of the company profile.
 - Checkout smart add-ons are validated server-side and use the configured delivery fee.
 - Delivery is configurable from Admin → Settings and defaults to 50 EGP; there is no automatic free-shipping threshold.
+
+
+### Production order fix
+If the remote D1 database was created by an older version, run `002_orders_address_migration.sql` once. The Worker also performs a compatibility check before creating an order.
